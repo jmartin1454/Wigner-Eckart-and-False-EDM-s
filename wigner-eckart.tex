@@ -132,14 +132,134 @@ false electric dipole moment \sep trapped particles \sep neutron electric dipole
 \section{False electric dipole moments for particles in traps}
 \label{sec:intro}
 
-In neutron electric dipole moment experiments, 
-\cite{bib:pignol-roccia}
+In the most precise neutron electric dipole moment experiments,
+ultracold neutrons are placed in a bottle containing either parallel
+or antiparallel electric $E$ and magnetic $B_0$ fields.  Their spin
+precession frequency $\nu_\pm$ is measured
+\begin{equation}
+h\nu_\pm=\gamma_nB_0\pm 2d_nE
+\end{equation}
+for each of the parallel ($+$) and antiparallel ($-$) configurations,
+leading to a determination of the neutron electric dipole moment
+$d_n$.  Here $\gamma_n$ is the neutron gyromagnetic ratio and $h$ is
+Planck's constant.
+
+A crucial aspect of the experiment is that the magnetic field be
+continuously monitored so that any drifts can be corrected.  To
+monitor the field, a second ``comagnetometer'' atomic species is
+stored in the cell and its spin precession frequency is measured
+optically.  Normally $^{199}$Hg is used for this
+purpose~\cite{bib:green,bib:hg-better} in part because its own EDM has
+been constrained to be small~\cite{bib:hgupdate}.
+
+Ideally, the magnetic field $B_0$ should be uniform so that long
+free-precession times can be achieved for both the neutrons and Hg
+atoms.  In the previous most precise nEDM
+experiment~\cite{bib:baker,bib:pendlebury} it was found that a
+vertical gradient $\partial B_{0z}/\partial z$ in the magnetic field
+induced false EDM's for the neutrons and Hg atoms.  The frequency
+shift can be thought of as a Bloch-Siegert shift for particles
+traveling in bound orbits within the trap~\cite{bib:gpe1,bib:gpe2}.
+The ultracold neutrons traverse the measurement volume slowly enough
+that their accrued phase can be thought of as a geometric
+phase~\cite{bib:gpe1}.
+
+The false EDM's can also be calculated by correlation function
+techniques~\cite{bib:gpe3,bib:gpe4}.  This led to the realization that
+false EDM for the Hg atoms could written in the form
+\begin{equation}
+\label{eq:pignol}
+  d_{f,\rm Hg}=...\langle xB_x+yB_y\rangle
+\end{equation}
+using integration by parts~\cite{bib:pignol-roccia}.  Here, ... define
+things and discuss any other caveats and explain the averaging... This
+form is valid to high precision, even reproducing higher-order effects
+first studied using Monte Carlo techniques in Ref.~\cite{bib:gpe2}.
+
+The work presented here concerns higher-order corrections beyond the
+first-order vertical gradient $\partial B_{0z}/\partial z$.  We show
+that for spherical traps, all higher-order terms contributing to
+Eq.~(\cite{eq:pignol}) are identically zero.  We further show that for
+the usual cylindrical traps used in EDM experiments, selection of
+quasi-spherical dimensions for the trap can reduce the higher-order
+contributions to false EDM of the Hg atoms.
+
 
 \section{Harmonic Decomposition of the Magnetic Field}
 
+Within the measurement region of EDM experiments, nonmagnetic
+components are used so that the field can be measured and controlled
+precisely.  Since bound and free currents are absent from this region,
+the magnetic field can be written as~\cite{bib:jackson}
+\begin{equation}
+\vec{B}=-\nabla\Phi_M
+\end{equation}
+where $\Phi_M$ is the magnetic scalar potential.  Since
+$\nabla\cdot\vec{B}=0$, $\Phi_M$ obeys Laplace's equation:
+\begin{equation}
+\nabla^2\Phi_M=0.
+\end{equation}
+The general solution for a boundary-value problem in can be written in
+terms of spherical harmonics $Y_{\ell m}(\theta,\phi)$ as
+\begin{equation}
+  \Phi_M(r,\theta,\phi)=\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell\left[A_{\ell m}r^\ell+B_{\ell m}r^{-(\ell+1)}\right]Y_{\ell m}(\theta,\phi)
+\end{equation}
+where... define things and state that $\Phi$ must be real.  If we
+define $r=0$ to be the center of the trap, the requirement that
+$\vec{B}$ remain finite enforces $B_{\ell m}=0$.
+
+The average appearing in Eq.~(\ref{eq:pignol}) can be recast in terms
+of the scalar potential as
+\begin{equation}
+  \langle xB_x+yB_y\rangle=\left\langle\left(x\frac{\partial}{\partial
+    x}+y\frac{\partial}{\partial y}\right)\Phi_M\right\rangle
+\end{equation}
+which in terms of the spherical harmonics becomes
+\begin{equation}
+  \label{eq:xb}
+  \langle xB_x+yB_y\rangle=\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell
+  A_{\ell m}\left\langle\left(x\frac{\partial}{\partial
+    x}+y\frac{\partial}{\partial y}\right)r^\ell Y_{\ell
+    m}\right\rangle
+\end{equation}
+where again the average is conducted over the measurement cell.
+
 \section{Application of the Wigner-Eckart Theorem}
 
+We can apply the Wigner-Eckart Theorem to this system by making an
+analogy to matrix elements in quantum mechanics.  The differential
+operator in Eq.~(\ref{eq:xb}) $\left(x\frac{\partial}{\partial
+  x}+y\frac{\partial}{\partial y}\right)$ can be analogized to the
+operator $(xp_x+yp_y)$ in quantum mechanics.  For a particle in a
+spherically symmetric potential, the stationary states may be written
+as eigenstates of the angular momentum operators
+\begin{equation}
+L^2|n\ell m\rangle=\hbar^2\ell(\ell+1)|n\ell m\rangle
+\end{equation}
+\begin{equation}
+L_z^2|n\ell m\rangle=\hbar m|n\ell m\rangle
+\end{equation}
+where $|n\ell m\rangle$ represents the stationary state and $\ell$ and
+$m$ are quantum numbers.  The quantum number $n$ would count energy
+levels.  In the position representation, the states factorize in
+spherical coordinates as
+\begin{equation}
+\langle\vec{r}|n\ell m\rangle=R_{n\ell}(r)Y_{\ell m}(\theta,\phi)
+\end{equation}
+and thus the states are related to the spherical harmonics.
+
+The Wigner-Eckart theorem relates matrix elements involving these
+states to Clebsch-Gordan coefficients \cite{bib:sakurai}.  Applied to two
+states $|n\ell m\rangle$ and $|n\ell m\rangle$, it would read
+\begin{equation}
+\langle n'\ell'm'|T_q^{(k)}|n\ell m\rangle=\langle \ell k;mq|\ell k;\ell'm'\rangle\frac{\langle n'\ell'||T^{(k)}||n\ell\rangle}{\sqrt{2j+1}}
+\end{equation}
+where $T_q^{(k)}$ is a spherical tensor of rank $k$ with magnetic
+quantum number $q$.  The double-bar matrix element is a reduced matrix
+element that does not depend on $m$, $m'$, or $q$.
+
 \section{Cylindrical Trap and Suppression of Higher Orders}
+\label{sec:cylinder}
 
 \section{Conclusion}
 
