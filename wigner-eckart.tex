@@ -211,7 +211,7 @@ $\vec{B}$ remain finite enforces $B_{\ell m}=0$.
 The average appearing in Eq.~(\ref{eq:pignol}) can be recast in terms
 of the scalar potential as
 \begin{equation}
-  \langle xB_x+yB_y\rangle=\left\langle\left(x\frac{\partial}{\partial
+  \langle xB_x+yB_y\rangle=-\left\langle\left(x\frac{\partial}{\partial
     x}+y\frac{\partial}{\partial y}\right)\Phi_M\right\rangle
 \end{equation}
 which in terms of the spherical harmonics becomes
@@ -353,7 +353,7 @@ selection rule.  We are then left with only one non-zero term arising
 from the harmonic decomposition of the field:
 \begin{equation}
 \langle
-xB_x+yB_y\rangle=A_{20}\left\langle\left(x\frac{\partial}{\partial
+xB_x+yB_y\rangle=-A_{20}\left\langle\left(x\frac{\partial}{\partial
   x}+y\frac{\partial}{\partial y}\right)r^2 Y_{20}\right\rangle
 \end{equation}
 where the average can be readily carried out since $r^2Y_{20}$ is a
@@ -376,17 +376,77 @@ cylindrical cell is centered on $z=0$, these terms will also average
 to zero.  We are then left with
 \begin{equation}
   \label{eq:cyl}
-  \langle xB_x+yB_y\rangle=\sum_{\ell=2,4,6,...}^\infty A_{\ell
-    0}\left\langle\left(x\frac{\partial}{\partial
-    x}+y\frac{\partial}{\partial y}\right)r^\ell Y_{\ell
+  \langle xB_x+yB_y\rangle=-\sum_{\ell=2,4,6,...}^\infty A_{\ell
+    0}\left\langle\left(\rho\frac{\partial}{\partial
+    \rho}\right)r^\ell Y_{\ell
     0}\right\rangle
 \end{equation}
 The purpose of this section is to demonstrate that $\ell=2$ dominates,
 that for a certain choice of cell dimensions the $\ell=4$ term can be
-zeroed, and that for this selection the $\ell=6$ term can be reduced compared to the typical cell geometry used for the ILL nEDM experiment.
+zeroed, and that for this selection the $\ell=6$ term can be reduced
+compared to the typical cell geometry used for the ILL nEDM
+experiment.
+
+The spherical harmonics of interest are
+\begin{equation}
+Y_{20}(\theta,\phi)=\sqrt{\frac{5}{16\pi}}\left(3\cos^2\theta-1\right)
+\end{equation}
+\begin{equation}
+Y_{40}(\theta,\phi)=\frac{3}{16}\sqrt{\frac{1}{\pi}}\left(35\cos^4\theta-30\cos^2\theta+3\right)
+\end{equation}
+and
+\begin{equation}
+Y_{60}(\theta,\phi)=\frac{1}{32}\sqrt{\frac{13}{\pi}}\left(231\cos^6\theta-315\cos^4\theta+105\cos^2\theta-5\right).
+\end{equation}
+In general $r^\ell Y_{\ell 0}$ is a polynomial in $\rho$ and $z$ when
+expressed in cylindrical coordinates.  For the terms of interest, the
+polynomials are
+\begin{equation}
+r^2Y_{20}=\sqrt{\frac{5}{16\pi}}\left(2z^2-\rho^2\right)
+\end{equation}
+\begin{equation}
+r^4Y_{40}=...
+\end{equation}
+and
+\begin{equation}
+r^6Y_{60}=... .
+\end{equation}
+We define the origin of coordinates to lie at the center of a
+measurement cell with height $H$ and radius $R$.  Carrying out the
+average over the cell, the first three non-zero terms of
+Eq.~(\ref{eq:cyl}) become
+\begin{equation}
+  \langle
+  xB_x+yB_y\rangle=A_{20}\left(\sqrt{\frac{5}{16\pi}}R^2\right)+A_{40}+A_{60}+...
+\end{equation}
+We make the following observations:
+
+... 20 term agrees with Pignol and Roccia
+
+The $A_{20}$ term is in agreement with Ref.~\cite{bib:pignol}.  In
+Ref.~\cite{bib:pignol}, the scalar potential was expanded to second
+order and it was noted for example that
+\begin{equation}
+  \langle xB_x+yB_y\rangle=-\frac{R^2}{4}\left\langle\frac{\partial B_z}{dz}\right\rangle.
+\end{equation}
+Using our expression for the $A_{20}$ term alone indeed expresses a
+uniform gradient
+\begin{equation}
+  \left(\frac{\partial B_z}{\partial
+    z}\right)_{20}=-4\sqrt{\frac{5}{16\pi}}A_{20}
+\end{equation}
+and therefore our expression is in agreement with
+Ref.~\cite{bib:pignol} to this order.
+
+... 40 term can be set to zero.  For ILL R is ... H is ... and so 40
+is ...
+
+... 60 term at ILL is ... and if 40 term is zero it is ...
 
 
 \section{Conclusion}
+
+...
 
 
 \begin{figure}[h]
