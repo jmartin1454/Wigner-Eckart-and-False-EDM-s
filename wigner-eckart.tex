@@ -230,9 +230,10 @@ We can apply the Wigner-Eckart Theorem to this system by making an
 analogy to matrix elements in quantum mechanics.  The differential
 operator in Eq.~(\ref{eq:xb}) $\left(x\frac{\partial}{\partial
   x}+y\frac{\partial}{\partial y}\right)$ can be analogized to the
-operator $(xp_x+yp_y)$ in quantum mechanics.  For a particle in a
-spherically symmetric potential, the stationary states may be written
-as eigenstates of the angular momentum operators
+operator $(xp_x+yp_y)$ in quantum mechanics.
+
+For a particle in a spherically symmetric potential, the stationary
+states may be written as eigenstates of the angular momentum operators
 \begin{equation}
 L^2|n\ell m\rangle=\hbar^2\ell(\ell+1)|n\ell m\rangle
 \end{equation}
@@ -248,18 +249,140 @@ spherical coordinates as
 \end{equation}
 and thus the states are related to the spherical harmonics.
 
-The Wigner-Eckart theorem relates matrix elements involving these
-states to Clebsch-Gordan coefficients \cite{bib:sakurai}.  Applied to two
-states $|n\ell m\rangle$ and $|n\ell m\rangle$, it would read
+Eq.~(\ref{eq:xb}) therefore has a number of elements which bear a
+strong similarity with calculations in quantum mechanics.  The average
+in \ref{eq:xb} is over the cell...it has to be a spherical cell.  The
+term under the average is proportional to a quantum mechanical matrix
+element as
 \begin{equation}
-\langle n'\ell'm'|T_q^{(k)}|n\ell m\rangle=\langle \ell k;mq|\ell k;\ell'm'\rangle\frac{\langle n'\ell'||T^{(k)}||n\ell\rangle}{\sqrt{2j+1}}
+\label{eq:matrix}
+  \left\langle\left(x\frac{\partial}{\partial
+  x}+y\frac{\partial}{\partial y}\right)r^\ell Y_{\ell
+  m}\right\rangle\sim\langle n'00|(xp_x+yp_y)|n\ell m\rangle
+\end{equation}
+where we have inserted a spherically symmetric state with
+$\ell'=m'=0$.  Being constructed from products of vector operators, we
+will show that the operator $(xp_x+yp_y)$ can be written as an
+admixture of spherical tensors of rank 0 and 2.
+
+The Wigner-Eckart theorem relates matrix elements of spherical tensors
+involving these states to Clebsch-Gordan coefficients
+\cite{bib:sakurai}.  Applied to two states $|n'\ell'm'\rangle$ and
+$|n\ell m\rangle$, it would read
+\begin{equation}
+\langle n'\ell'm'|T_q^{(k)}|n\ell m\rangle=\langle\ell k;mq|\ell k;\ell'm'\rangle\frac{\langle n'\ell'||T^{(k)}||n\ell\rangle}{\sqrt{2j+1}}
 \end{equation}
 where $T_q^{(k)}$ is a spherical tensor of rank $k$ with magnetic
 quantum number $q$.  The double-bar matrix element is a reduced matrix
 element that does not depend on $m$, $m'$, or $q$.
 
+The Clebsch-Gordan coefficient $\langle\ell k;mq|\ell
+k;\ell'm'\rangle$ can be thought of in the following more familiar
+way.  Imagine two angular momentum operators $\vec{L}$ and $\vec{K}$
+with a simultaneous eigenstate $|\ell k;mq\rangle$ s.t.
+\begin{equation}
+L^2|\ell k;mq\rangle=\hbar^2\ell(\ell+1)|\ell k;mq\rangle
+\end{equation}
+\begin{equation}
+L_z|\ell k;mq\rangle=\hbar m|\ell k;mq\rangle
+\end{equation}
+\begin{equation}
+K^2|\ell k;mq\rangle=\hbar^2k(k+1)|\ell k;mq\rangle
+\end{equation}
+\begin{equation}
+K_z|\ell k;mq\rangle=\hbar q|\ell k;mq\rangle.
+\end{equation}
+If we now define a new operator $\vec{L}'=\vec{L}+\vec{K}$, the
+Clebsch-Gordan coefficients represent the coefficients transforming to
+the new basis $|\ell k;\ell'm'\rangle$ where
+\begin{equation}
+L^2|\ell k;mq\rangle=\hbar^2\ell(\ell+1)|\ell k;\ell'm'\rangle
+\end{equation}
+\begin{equation}
+K^2|\ell k;mq\rangle=\hbar^2k(k+1)|\ell k;\ell'm'\rangle
+\end{equation}
+\begin{equation}
+L'^2|\ell k;mq\rangle=\hbar^2\ell'(\ell'+1)|\ell k;\ell'm'\rangle
+\end{equation}
+\begin{equation}
+L'_z|\ell k;mq\rangle=\hbar m'|\ell k;\ell'm'\rangle.
+\end{equation}
+In this way, the Clebsch-Gordan coefficient is related to the addition
+of angular momentum of the state $|n\ell m\rangle$ to that of the
+spherical tensor $T_q^{(k)}$ and reaching the state
+$|n'\ell'm'\rangle$.
+
+The Clebsch-Gordan coefficient is only non-zero if
+\begin{equation}
+  \label{eq:z}
+  m+q=m'
+\end{equation}
+and
+\begin{equation}
+\label{eq:ell}
+  |\ell-k|\leq\ell'\leq\ell+k
+\end{equation}
+
+As mentioned earlier the operator $(xp_x+yp_y)$ can be written as an
+admixture of spherical tensors of rank 0 and 2.  The following two
+spherical tensors may be constructed from the Cartesian components of
+the vector operators $\vec{r}$ and $\vec{p}$:
+\begin{equation}
+T_0^{(0)}=-\frac{\vec{r}\cdot\vec{p}}{3}=\frac{-xp_x-yp_y-zp_z}{3}
+\end{equation}
+and
+\begin{equation}
+T_0^{(2)}=\frac{3zp_z-(\vec{r}\cdot\vec{p})^2}{\sqrt{6}}=\frac{-xp_x-yp_y+2zp_z}{\sqrt{6}}.
+\end{equation}
+The operator of interest can then be written as
+\begin{equation}
+xp_x+yp_y=-2T_0^{(0)}-\sqrt{\frac{2}{3}}T_0^{(2)}
+\end{equation}
+which are spherical tensors of rank 0 and 2 with magnetic quantum
+number $q=0$.
+
+Finally we note that because these operators are even under the parity
+transformation, they may only link states of the same parity.
+
+We can now apply Eqs.~(\ref{eq:z}) and (\ref{eq:ell}) to
+Eq.~(\ref{eq:xb}) to find that only terms in the sums with $m=0$ and
+$\ell=0,1,2$ will contribute.  Since the operator in Eq.~(\ref{eq:xb})
+is a differential operator, the term with $\ell=0$ also cannot
+contribute.  The term with $\ell=1$ is ruled out by the parity
+selection rule.  We are then left with only one non-zero term arising
+from the harmonic decomposition of the field:
+\begin{equation}
+\langle
+xB_x+yB_y\rangle=A_{20}\left\langle\left(x\frac{\partial}{\partial
+  x}+y\frac{\partial}{\partial y}\right)r^2 Y_{20}\right\rangle
+\end{equation}
+where the average can be readily carried out since $r^2Y_{20}$ is a
+polynomial of degree 2 in the Cartesian coordinates.
+
 \section{Cylindrical Trap and Suppression of Higher Orders}
 \label{sec:cylinder}
+
+A requirement of this calculation is that the EDM cell be spherical,
+which is not an attractive option for EDM experiments.  A more typical
+geometry is a cylindrically symmetric geometry.  In this case, it can
+still readily be demonstrated that only $m=0$ terms contribute in the
+second sum in Eq.~(\ref{eq:xb}).  Switching to cylindrical
+$(\rho,\phi,z)$ coordinates, the differential operator becomes
+$x\frac{\partial}{\partial x}+y\frac{\partial}{\partial
+  y}=\rho\frac{\partial}{\partial\rho}$ and since $Y_{\ell m}\sim
+e^{im\phi}$ these terms would average to zero unless $m=0$.
+Furthermore, terms with $\ell={\rm odd}$ are odd in $z$.  Thus if the
+cylindrical cell is centered on $z=0$, these terms will also average
+to zero.  We are then left with
+\begin{equation}
+  \label{eq:cyl}
+  \langle xB_x+yB_y\rangle=\sum_{\ell=2,4,6,...}^\infty A_{\ell
+    0}\left\langle\left(x\frac{\partial}{\partial
+    x}+y\frac{\partial}{\partial y}\right)r^\ell Y_{\ell
+    0}\right\rangle
+\end{equation}
+The purpose of this section is to demonstrate that $\ell=2$
+
 
 \section{Conclusion}
 
