@@ -37,12 +37,15 @@
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
 %% The amsthm package provides extended theorem environments
-%% \usepackage{amsthm}
+\usepackage{amsthm}
+\usepackage{amsmath}
 
 %% The lineno packages adds line numbers. Start line numbering with
 %% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
 %% for the whole article with \linenumbers after \end{frontmatter}.
 \usepackage{lineno}
+
+\usepackage{siunitx}
 
 %% natbib.sty is loaded by default. However, natbib options can be
 %% provided with \biboptions{...} command. Following options are
@@ -169,10 +172,9 @@ techniques~\cite{bib:gpe3,bib:gpe4}.  This led to the realization that
 false EDM for the Hg atoms could written in the form
 \begin{equation}
 \label{eq:pignol}
-  d_{f,\rm Hg}=...\langle xB_x+yB_y\rangle
+  d_{f,\rm Hg}=-\frac{\hbar\gamma^{2}}{2c^{2}}\langle xB_x+yB_y\rangle
 \end{equation}
-using integration by parts~\cite{bib:pignol-roccia}.  Here, ... define
-things and discuss any other caveats and explain the averaging... This
+using integration by parts~\cite{bib:pignol-roccia}.  Here, $\gamma$ is the gyromagnetic ratio of Hg, and the average is over the containing volume. This
 form is valid to high precision, even reproducing higher-order effects
 first studied using Monte Carlo techniques in Ref.~\cite{bib:gpe2}.
 
@@ -201,10 +203,14 @@ $\nabla\cdot\vec{B}=0$, $\Phi_M$ obeys Laplace's equation:
 \end{equation}
 The general solution for a boundary-value problem in can be written in
 terms of spherical harmonics $Y_{\ell m}(\theta,\phi)$ as
-\begin{equation}
+\begin{equation}\label{eq:boundaryvalue}
   \Phi_M(r,\theta,\phi)=\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell\left[A_{\ell m}r^\ell+B_{\ell m}r^{-(\ell+1)}\right]Y_{\ell m}(\theta,\phi)
 \end{equation}
-where... define things and state that $\Phi$ must be real.  If we
+with the spherical harmonics
+\begin{equation}
+    Y_{\ell,m}(\theta,\phi)=\sqrt{\frac{2\ell+1}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}}P_{\ell}^{m}(\cos\theta)e^{im\phi},
+\end{equation}
+and the associated Legendre polynomials, $P_{\ell}^{m}$. define things and state that $\Phi$ must be real.  If we
 define $r=0$ to be the center of the trap, the requirement that
 $\vec{B}$ remain finite enforces $B_{\ell m}=0$.
 
@@ -217,7 +223,7 @@ of the scalar potential as
 which in terms of the spherical harmonics becomes
 \begin{equation}
   \label{eq:xb}
-  \langle xB_x+yB_y\rangle=\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell
+  \langle xB_x+yB_y\rangle=-\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell
   A_{\ell m}\left\langle\left(x\frac{\partial}{\partial
     x}+y\frac{\partial}{\partial y}\right)r^\ell Y_{\ell
     m}\right\rangle
@@ -381,50 +387,66 @@ to zero.  We are then left with
     \rho}\right)r^\ell Y_{\ell
     0}\right\rangle
 \end{equation}
+In order to more easily compare to~\cite{bib:pignol-roccia}, we introduce a different and convenient normalization of the polynomials, and define
+%Need a better name than Sigma, I think.
+\begin{equation}
+    \Sigma_{\ell,m} = \frac{1}{\ell}r^{\ell}P_{\ell}^{m}(\cos\theta).
+\end{equation}
+Equation \ref{eq:cyl} can then be written:
+\begin{equation}
+    \langle xB_x+yB_y\rangle= - \sum_{\ell=2,4,6...}^{\infty} g_{\ell0}\left\langle\left(\rho\frac{\partial}{\partial \rho}\right)\Sigma_{\ell0}\right\rangle,
+\end{equation}
+where $g_{\ell0}$ takes the place of $A_{\ell0}$ in equation \ref{eq:boundaryvalue}.  This normalization ensures that the $\ell=0$ components of $B_{z}$ are polynomials containing $z^{\ell+1}$.
 The purpose of this section is to demonstrate that $\ell=2$ dominates,
 that for a certain choice of cell dimensions the $\ell=4$ term can be
 zeroed, and that for this selection the $\ell=6$ term can be reduced
 compared to the typical cell geometry used for the ILL nEDM
 experiment.
-
-The spherical harmonics of interest are
+The Legendre polynomials of interest are
 \begin{equation}
-Y_{20}(\theta,\phi)=\sqrt{\frac{5}{16\pi}}\left(3\cos^2\theta-1\right)
+P_{2}^{0}(\cos\theta)=\frac{1}{2}(3\cos^{2}\theta-1)
 \end{equation}
 \begin{equation}
-Y_{40}(\theta,\phi)=\frac{3}{16}\sqrt{\frac{1}{\pi}}\left(35\cos^4\theta-30\cos^2\theta+3\right)
+P_{4}^{0}(\cos\theta)=\frac{1}{8}(35\cos^{4}\theta-30\cos^{2}\theta+3)
 \end{equation}
 and
 \begin{equation}
-Y_{60}(\theta,\phi)=\frac{1}{32}\sqrt{\frac{13}{\pi}}\left(231\cos^6\theta-315\cos^4\theta+105\cos^2\theta-5\right).
+P_{6}^{0}(\cos\theta)=\frac{1}{16}(231\cos^{6}\theta-315\cos^{4}\theta+105\cos^{2}\theta-5).
 \end{equation}
-In general $r^\ell Y_{\ell 0}$ is a polynomial in $\rho$ and $z$ when
+In general $\Sigma_{\ell 0}$ is a polynomial in $\rho$ and $z$ when
 expressed in cylindrical coordinates.  For the terms of interest, the
 polynomials are
 \begin{equation}
-r^2Y_{20}=\sqrt{\frac{5}{16\pi}}\left(2z^2-\rho^2\right)
+\Sigma_{20}=\frac{1}{4}\left(2z^2-\rho^2\right)
 \end{equation}
 \begin{equation}
-r^4Y_{40}=...
+\Sigma_{40}=\frac{1}{32}\left(8z^{4}-24z^{2}\rho^{2}+3\rho^{4}\right)
 \end{equation}
 and
 \begin{equation}
-r^6Y_{60}=... .
+\Sigma_{60}=\frac{1}{96}\left(16z^{6}-120z^{4}\rho^{2}+90z^{2}\rho^{4}-5\rho^{6}\right) .
 \end{equation}
 We define the origin of coordinates to lie at the center of a
 measurement cell with height $H$ and radius $R$.  Carrying out the
 average over the cell, the first three non-zero terms of
 Eq.~(\ref{eq:cyl}) become
-\begin{equation}
+\begin{multline}
 \label{eq:xbc}
   \langle
-  xB_x+yB_y\rangle=A_{20}\left(\sqrt{\frac{5}{16\pi}}R^2\right)+A_{40}+A_{60}+...
-\end{equation}
+  xB_x+yB_y\rangle=g_{20}\left(\frac{R^{2}}{4}\right)+g_{40}\left(\frac{R^{2}H^{2}}{16}-\frac{R^{4}}{8}\right)\\
+  +g_{60}\left(\frac{5R^{2}H^{4}}{64}-\frac{5R^{4}H^{2}}{16}+\frac{5R^{6}}{64}\right)...
+\end{multline}
+The expression for $d_{f,Hg}$ then becomes\\
+
+\begin{multline}
+    d_{f,Hg} = -\frac{\hbar\gamma_{Hg}^{2}}{2c^{2}}\left[g_{20}\left(\frac{R^{2}}{4}\right)+g_{40}\left(\frac{R^{2}H^{2}}{16}-\frac{R^{4}}{8}\right)\right.\\
+    +\left.g_{60}\left(\frac{5R^{2}H^{4}}{64}-\frac{5R^{4}H^{2}}{16}+\frac{5R^{6}}{64}\right)+...\right]
+\end{multline}
 We make the following observations:
 
 ... 20 term agrees with Pignol and Roccia
 
-The $A_{20}$ term is in agreement with Ref.~\cite{bib:pignol}.  In
+The $g_{20}$ term is in agreement with Ref.~\cite{bib:pignol}.  In
 Ref.~\cite{bib:pignol}, the scalar potential was expanded to second
 order and it was noted for example that
 \begin{equation}
@@ -439,10 +461,7 @@ uniform gradient
 and therefore our expression in Eq.~(\ref{eq:xbc}) is in agreement with
 Ref.~\cite{bib:pignol} to this order.
 
-... 40 term can be set to zero.  For ILL R is ... H is ... and so 40
-is ...
-
-... 60 term at ILL is ... and if 40 term is zero it is ...
+For ILL R is 0.235 m, H is 0.12 m, and so the $\ell=4$ term is $\num{3.3e-4}$, and the $\ell=6$ term is $\num{-8.4e-6}$.  However, the $g_{40}$ term in equation \ref{eq:xbc} can be made to be zero by careful selection of R and H.  Keeping approximately the same volume, we can set R = 17, H = $\sqrt{2}\cdot$17 = 24.  The $\ell=4$ term is zero, and the $\ell=6$ term is \num{2.0e-6}, a factor of 4 suppression.
 
 
 \section{Conclusion}
