@@ -472,27 +472,32 @@ H=\sqrt{2}R
 \end{equation}
 If this selection is made, then the factor in the $g_{60}$ term becomes
 \begin{equation}
-\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}=-\frac{23}{48}R^4
+\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}=-\frac{13}{48}R^4
 \end{equation}
 
-For ILL/PSI nEDM experiment, the cell dimensions are $R=0.235$~m and
-$H=0.12$~m, and so Eq.~(\ref{eq:h}) is clearly not obeyed.
+For ILL/PSI nEDM experiment, the cell dimensions are $R=23.5$~cm and
+$H=12$~cm, and so Eq.~(\ref{eq:h}) is clearly not obeyed.
 
 Using the ILL/PSI geometry, the $\ell=4$ term is
 \begin{equation}
-\frac{H^{2}}{4}-\frac{R^2}{2}=\num{3.3e-4}
+\frac{H^{2}}{4}-\frac{R^2}{2}=-240~\mathrm{cm}^2
 \end{equation}
 and the $\ell=6$ term is
 \begin{equation}
-\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}=\num{-8.4e-6}
+\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}=\num{6.35e4}~\mathrm{cm}^4
 \end{equation}
-
-
 Keeping approximately the same volume, we can set R = 17, H =
 $\sqrt{2}\cdot$17 = 24.  The $\ell=4$ term is zero, and the $\ell=6$
-term is \num{2.0e-6}, a factor of 4 suppression.
-
-
+term is \num{2.25e4}~cm$^4$, a factor of 3 suppression.
+The full expression for the ILL/PSI geometry is
+\begin{equation}
+    d_{f,Hg} = \num{1.15e-27}\left(g_{20} - g_{40}\cdot240 + g_{60}\cdot\num{6.35e4}\right)\mathrm{e}\cdot\mathrm{cm},
+\end{equation}
+and the full expression for the optimized geometry is
+\begin{equation}
+    d_{f,Hg} = \num{6e-28}\left(g_{20} + g_{60}\cdot\num{2.25e4}\right)\mathrm{e}\cdot\mathrm{cm}.
+\end{equation}
+Here, the $g_{\ell0}$ terms are in units of pT/cm$^{\ell-2}$
 \section{Conclusion}
 
 ...
