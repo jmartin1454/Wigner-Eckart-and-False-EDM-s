@@ -387,44 +387,53 @@ to zero.  We are then left with
     \rho}\right)r^\ell Y_{\ell
     0}\right\rangle
 \end{equation}
-In order to more easily compare to~\cite{bib:pignol-roccia}, we introduce a different and convenient normalization of the polynomials, and define
-%Need a better name than Sigma, I think.
-\begin{equation}
-    \Sigma_{\ell,m} = \frac{1}{\ell}r^{\ell}P_{\ell}^{m}(\cos\theta).
-\end{equation}
-Equation \ref{eq:cyl} can then be written:
-\begin{equation}
-    \langle xB_x+yB_y\rangle= - \sum_{\ell=2,4,6...}^{\infty} g_{\ell0}\left\langle\left(\rho\frac{\partial}{\partial \rho}\right)\Sigma_{\ell0}\right\rangle,
-\end{equation}
-where $g_{\ell0}$ takes the place of $A_{\ell0}$ in equation \ref{eq:boundaryvalue}.  This normalization ensures that the $\ell=0$ components of $B_{z}$ are polynomials containing $z^{\ell+1}$.
 The purpose of this section is to demonstrate that $\ell=2$ dominates,
 that for a certain choice of cell dimensions the $\ell=4$ term can be
 zeroed, and that for this selection the $\ell=6$ term can be reduced
 compared to the typical cell geometry used for the ILL nEDM
 experiment.
-The Legendre polynomials of interest are
+
+In order to more easily compare to Ref.~\cite{bib:pignol-roccia}, we
+introduce a more convenient normalization based on the Legendre
+polynomials $P_\ell(\cos\theta)$ as
 \begin{equation}
-P_{2}^{0}(\cos\theta)=\frac{1}{2}(3\cos^{2}\theta-1)
+    \langle xB_x+yB_y\rangle= -
+    \sum_{\ell=2,4,6...}^{\infty}\frac{g_{\ell0}}{\ell}\left\langle\left(\rho\frac{\partial}{\partial
+      \rho}\right)r^\ell P_\ell(\cos\theta)\right\rangle,
+\end{equation}
+where the $g_{\ell 0}$ are related by constants to the $A_{\ell 0}$ in
+Eq.~(\ref{eq:cyl}).  This normalization is preferred because it
+ensures that the $m=0$ components of
+$B_{z}=-\frac{\partial\Phi_M}{\partial z}$ are polynomials which
+contain $g_{\ell 0}z^{\ell-1}$.  This ensures, for example, that the
+leading-order term in $\frac{\partial B_z}{\partial z}=g_{20}$
+allowing us to easily identify $g_{20}$ itself as the uniform gradient
+term of Ref.~\cite{bib:pignol-roccia}.
+
+%The Legendre polynomials of interest are
+%\begin{equation}
+%P_{2}^{0}(\cos\theta)=\frac{1}{2}(3\cos^{2}\theta-1)
+%\end{equation}
+%\begin{equation}
+%P_{4}^{0}(\cos\theta)=\frac{1}{8}(35\cos^{4}\theta-30\cos^{2}\theta+3)
+%\end{equation}
+%and
+%\begin{equation}
+%P_{6}^{0}(\cos\theta)=\frac{1}{16}(231\cos^{6}\theta-315\cos^{4}\theta+105\cos^{2}\theta-5).
+%\end{equation}
+
+In general $\frac{1}{\ell}r^\ell P_\ell(\cos\theta)$, when expressed
+in cylindrical coordinates, is a polynomial in $\rho$ and $z$.  For
+the terms of interest, the polynomials are
+\begin{equation}
+\frac{1}{2}r^2P_2(\cos\theta)=\frac{1}{4}\left(2z^2-\rho^2\right)
 \end{equation}
 \begin{equation}
-P_{4}^{0}(\cos\theta)=\frac{1}{8}(35\cos^{4}\theta-30\cos^{2}\theta+3)
+\frac{1}{4}r^4P_4(\cos\theta)=\frac{1}{32}\left(8z^{4}-24z^{2}\rho^{2}+3\rho^{4}\right)
 \end{equation}
 and
 \begin{equation}
-P_{6}^{0}(\cos\theta)=\frac{1}{16}(231\cos^{6}\theta-315\cos^{4}\theta+105\cos^{2}\theta-5).
-\end{equation}
-In general $\Sigma_{\ell 0}$ is a polynomial in $\rho$ and $z$ when
-expressed in cylindrical coordinates.  For the terms of interest, the
-polynomials are
-\begin{equation}
-\Sigma_{20}=\frac{1}{4}\left(2z^2-\rho^2\right)
-\end{equation}
-\begin{equation}
-\Sigma_{40}=\frac{1}{32}\left(8z^{4}-24z^{2}\rho^{2}+3\rho^{4}\right)
-\end{equation}
-and
-\begin{equation}
-\Sigma_{60}=\frac{1}{96}\left(16z^{6}-120z^{4}\rho^{2}+90z^{2}\rho^{4}-5\rho^{6}\right) .
+\frac{1}{6}r^6P_6(\cos\theta)=\frac{1}{96}\left(16z^{6}-120z^{4}\rho^{2}+90z^{2}\rho^{4}-5\rho^{6}\right).
 \end{equation}
 We define the origin of coordinates to lie at the center of a
 measurement cell with height $H$ and radius $R$.  Carrying out the
