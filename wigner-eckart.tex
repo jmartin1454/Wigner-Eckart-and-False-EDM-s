@@ -406,9 +406,9 @@ Eq.~(\ref{eq:cyl}).  This normalization is preferred because it
 ensures that the $m=0$ components of
 $B_{z}=-\frac{\partial\Phi_M}{\partial z}$ are polynomials which
 contain $g_{\ell 0}z^{\ell-1}$.  This ensures, for example, that the
-leading-order term in $\frac{\partial B_z}{\partial z}=g_{20}$
-allowing us to easily identify $g_{20}$ itself as the uniform gradient
-term of Ref.~\cite{bib:pignol-roccia}.
+leading-order term in the vertical gradient is $\frac{\partial
+  B_z}{\partial z}=-g_{20}$, allowing us to easily identify $-g_{20}$
+itself as the uniform gradient term of Ref.~\cite{bib:pignol-roccia}.
 
 %The Legendre polynomials of interest are
 %\begin{equation}
@@ -441,39 +441,56 @@ average over the cell, the first three non-zero terms of
 Eq.~(\ref{eq:cyl}) become
 \begin{multline}
 \label{eq:xbc}
-  \langle
-  xB_x+yB_y\rangle=g_{20}\left(\frac{R^{2}}{4}\right)+g_{40}\left(\frac{R^{2}H^{2}}{16}-\frac{R^{4}}{8}\right)\\
-  +g_{60}\left(\frac{5R^{2}H^{4}}{64}-\frac{5R^{4}H^{2}}{16}+\frac{5R^{6}}{64}\right)...
+  \langle xB_x+yB_y\rangle
+=-\frac{R^{2}}{4}\left[g_{20}
++g_{40}\left(\frac{H^{2}}{4}-\frac{R^2}{2}\right)\right.\\
+  \left.+g_{60}\left(\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}\right)\right].
 \end{multline}
-The expression for $d_{f,Hg}$ then becomes\\
-
+The expression for $d_{f,Hg}$ then becomes
 \begin{multline}
-    d_{f,Hg} = -\frac{\hbar\gamma_{Hg}^{2}}{2c^{2}}\left[g_{20}\left(\frac{R^{2}}{4}\right)+g_{40}\left(\frac{R^{2}H^{2}}{16}-\frac{R^{4}}{8}\right)\right.\\
-    +\left.g_{60}\left(\frac{5R^{2}H^{4}}{64}-\frac{5R^{4}H^{2}}{16}+\frac{5R^{6}}{64}\right)+...\right]
+d_{f,Hg}=\frac{\hbar\gamma^{2}}{2c^{2}}\frac{R^2}{4}
+\left[g_{20}
++g_{40}\left(\frac{H^{2}}{4}-\frac{R^2}{2}\right)\right.\\
+  \left.+g_{60}\left(\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}\right)\right].
 \end{multline}
-We make the following observations:
+The $g_{20}$ term is in agreement with Ref.~\cite{bib:pignol-roccia},
+and the other two terms have also been derived
+previously~\cite{bib:pignol-priv}.  We now analyze the next two terms.
 
-... 20 term agrees with Pignol and Roccia
+%The traditional units used in EDM experiments is e$\cdot$cm, and
+%gradients are usually expressed in units per distance to some power.
+%We write the units of the pre-factor:
+%\begin{equation}
+%   blank
+%\end{equation}
 
-The $g_{20}$ term is in agreement with Ref.~\cite{bib:pignol}.  In
-Ref.~\cite{bib:pignol}, the scalar potential was expanded to second
-order and it was noted for example that
+An immediate observation is that the $g_{40}$ can be set to zero if
+the measurement volume is quasi-spherical {\it i.e.} for
 \begin{equation}
-  \langle xB_x+yB_y\rangle=-\frac{R^2}{4}\left\langle\frac{\partial B_z}{dz}\right\rangle.
+\label{eq:h}
+H=\sqrt{2}R
 \end{equation}
-Using our expression for the $A_{20}$ term alone indeed expresses a
-uniform gradient
+If this selection is made, then the factor in the $g_{60}$ term becomes
 \begin{equation}
-  \left(\frac{\partial B_z}{\partial
-    z}\right)_{20}=-4\sqrt{\frac{5}{16\pi}}A_{20}
-\end{equation}
-and therefore our expression in Eq.~(\ref{eq:xbc}) is in agreement with
-Ref.~\cite{bib:pignol} to this order.  The traditional units used in EDM experiments is e$\cdot$cm, and gradients are usually expressed in units per distance to some power.  We write the units of the pre-factor:
-\begin{equation}
-   blank
+\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}=-\frac{23}{48}R^4
 \end{equation}
 
-For ILL R is 0.235 m, H is 0.12 m, and so the $\ell=4$ term is $\num{3.3e-4}$, and the $\ell=6$ term is $\num{-8.4e-6}$.  However, the $g_{40}$ term in equation \ref{eq:xbc} can be made to be zero by careful selection of R and H.  Keeping approximately the same volume, we can set R = 17, H = $\sqrt{2}\cdot$17 = 24.  The $\ell=4$ term is zero, and the $\ell=6$ term is \num{2.0e-6}, a factor of 4 suppression.
+For ILL/PSI nEDM experiment, the cell dimensions are $R=0.235$~m and
+$H=0.12$~m, and so Eq.~(\ref{eq:h}) is clearly not obeyed.
+
+Using the ILL/PSI geometry, the $\ell=4$ term is
+\begin{equation}
+\frac{H^{2}}{4}-\frac{R^2}{2}=\num{3.3e-4}
+\end{equation}
+and the $\ell=6$ term is
+\begin{equation}
+\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}=\num{-8.4e-6}
+\end{equation}
+
+
+Keeping approximately the same volume, we can set R = 17, H =
+$\sqrt{2}\cdot$17 = 24.  The $\ell=4$ term is zero, and the $\ell=6$
+term is \num{2.0e-6}, a factor of 4 suppression.
 
 
 \section{Conclusion}
