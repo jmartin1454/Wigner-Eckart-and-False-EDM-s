@@ -109,7 +109,7 @@
 
 \address[um]{Physics and Astronomy, University of Manitoba, Winnipeg, MB, Canada}
 \address[uw]{Department of Physics, The University of Winnipeg, Winnipeg, MB, Canada}
-\address[lspc]{Universite' Grenoble Alpes, CNRS, Grenoble INP, LPSC-IN2P3, Grenoble, France}
+\address[lspc]{Universit\'e Grenoble Alpes, CNRS, Grenoble INP, LPSC-IN2P3, Grenoble, France}
 
 \begin{abstract}
 
@@ -152,8 +152,9 @@ continuously monitored so that any drifts can be corrected.  To
 monitor the field, a second ``comagnetometer'' atomic species is
 stored in the cell and its spin precession frequency is measured
 optically.  Normally $^{199}$Hg is used for this
-purpose~\cite{bib:green,bib:hg-better} in part because its own EDM has
-been constrained to be small~\cite{bib:hgupdate}.
+purpose~\cite{bib:green,bib:bakernim,bib:hg-better} in part because
+its true EDM has been constrained to be
+small~\cite{bib:griffith,bib:hgupdate}.
 
 Ideally, the magnetic field $B_0$ should be uniform so that long
 free-precession times can be achieved for both the neutrons and Hg
@@ -162,9 +163,9 @@ experiment~\cite{bib:baker,bib:pendlebury} it was found that a
 vertical gradient $\partial B_{0z}/\partial z$ in the magnetic field
 induced false EDM's for the neutrons and Hg atoms.  The frequency
 shift can be thought of as a Bloch-Siegert shift for particles
-traveling in bound orbits within the trap~\cite{bib:gpe1,bib:gpe2}.
-The ultracold neutrons traverse the measurement volume slowly enough
-that their accrued phase can be thought of as a geometric
+traveling in orbits within the trap~\cite{bib:gpe1,bib:gpe2}.  The
+ultracold neutrons traverse the measurement volume slowly enough that
+their accrued phase can be thought of as a geometric
 phase~\cite{bib:gpe1}.
 
 The false EDM's can also be calculated by correlation function
@@ -174,14 +175,20 @@ false EDM for the Hg atoms could written in the form
 \label{eq:pignol}
   d_{f,\rm Hg}=-\frac{\hbar\gamma^{2}}{2c^{2}}\langle xB_x+yB_y\rangle
 \end{equation}
-using integration by parts~\cite{bib:pignol-roccia}.  Here, $\gamma$ is the gyromagnetic ratio of Hg, and the average is over the containing volume. This
-form is valid to high precision, even reproducing higher-order effects
-first studied using Monte Carlo techniques in Ref.~\cite{bib:gpe2}.
+using integration by parts~\cite{bib:pignol-roccia}.  Here, $\gamma$
+is the gyromagnetic ratio of Hg, and the average is over the
+containing volume. This form is valid to high precision, even
+reproducing higher-order effects first studied using Monte Carlo
+techniques in Ref.~\cite{bib:gpe2}.
+
+The false EDM of Hg is also well-understood experimentally, having
+been characterized using surrounding Cs magnetometers \cite{bib:hgcs}
+and to higher orders \cite{bib:komposch}.
 
 The work presented here concerns higher-order corrections beyond the
 first-order vertical gradient $\partial B_{0z}/\partial z$.  We show
 that for spherical traps, all higher-order terms contributing to
-Eq.~(\cite{eq:pignol}) are identically zero.  We further show that for
+Eq.~(\ref{eq:pignol}) are identically zero.  We further show that for
 the usual cylindrical traps used in EDM experiments, selection of
 quasi-spherical dimensions for the trap can reduce the higher-order
 contributions to false EDM of the Hg atoms.
@@ -567,6 +574,7 @@ This work was undertaken, in part, thanks to funding from the Natural
 Sciences and Engineering Research Council Canada, the Canada Research
 Chairs program, and the Canada Foundation for Innovation.
 
+\section*{References}
 
 \bibliographystyle{model1-num-names}
 \bibliography{sample.bib}

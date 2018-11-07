@@ -1,7 +1,7 @@
 %%
-%% This is file `model1-num-names.bst',
+%% This is file `model1-num-names.bst'  (Version 2.0),
 %% 
-%% Copyright 2009 Elsevier Ltd
+%% Copyright 2009-2012 Elsevier Ltd
 %% 
 %% This file is part of the 'Elsarticle Bundle'.
 %% ---------------------------------------------
@@ -13,7 +13,7 @@
 %% and version 1.2 or later is part of all distributions of LaTeX
 %% version 1999/12/01 or later.
 %%
-%% $Id: model1-num-names.bst 125 2009-10-07 11:47:47Z rishi $
+%% $Id: model1-num-names.bst 206 2012-10-22 07:28:26Z rishi $
 %%
 %% $URL: http://lenova.river-valley.com/svn/elsbst/trunk/New-Model-1/model1-num-names.bst $
 %%
@@ -24,6 +24,7 @@ ENTRY
     author
     booktitle
     chapter
+    collaboration
     edition
     editor
     howpublished
@@ -42,10 +43,26 @@ ENTRY
     type
     volume
     year
+    url
+    doi
+    eprint
+    pubmed
   }
   {}
   { label extra.label sort.label short.list }
+
 INTEGERS { output.state before.all mid.sentence after.sentence after.block }
+
+STRINGS { urlprefix doiprefix eprintprefix pubmedprefix }
+
+FUNCTION {init.web.variables}
+{
+ "\URLprefix "     'urlprefix :=
+ "\DOIprefix"      'doiprefix :=
+ "\ArXivprefix  "   'eprintprefix :=
+ "\Pubmedprefix "  'pubmedprefix :=
+}
+
 FUNCTION {init.state.consts}
 { #0 'before.all :=
   #1 'mid.sentence :=
@@ -185,7 +202,7 @@ FUNCTION {bbl.edby}
 { "edited by" }
 
 FUNCTION {bbl.edition}
-{ "edition" }
+{ "ed." }
 
 FUNCTION {bbl.volume}
 { "volume" }
@@ -376,9 +393,22 @@ FUNCTION {format.key}
   if$
 }
 
+%FUNCTION {format.authors}
+%{ author "author" format.names
+%}
+
 FUNCTION {format.authors}
 { author "author" format.names
+    duplicate$ empty$ 'skip$
+    { collaboration "collaboration" bibinfo.check
+      duplicate$ empty$ 'skip$
+        { " (" swap$ * ")" * }
+      if$
+      *
+    }
+  if$
 }
+
 FUNCTION {get.bbl.editor}
 { editor num.names$ #1 > 'bbl.editors 'bbl.editor if$ }
 
@@ -810,6 +840,66 @@ FUNCTION {format.organization.address}
 { organization "organization" bibinfo.check format.org.or.pub
 }
 
+FUNCTION {print.url}
+ {url duplicate$ empty$
+   { pop$ "" }
+   { new.sentence
+     urlprefix "\url{" * swap$  * "}" *
+   }
+   if$
+ }
+
+FUNCTION {print.doi}
+ {doi duplicate$ empty$
+   { pop$ "" }
+   { new.sentence
+     doiprefix "\doi{" * swap$  * "}" *
+   }
+   if$
+ }
+
+FUNCTION {print.eprint}
+ {eprint duplicate$ empty$
+   { pop$ "" }
+   { new.sentence
+     duplicate$ "\href{http://arxiv.org/abs/" swap$ * "}{\tt arXiv:" * swap$ * "}" *
+   }
+   if$
+ }
+
+FUNCTION {print.pubmed}
+ {pubmed duplicate$ empty$
+   { pop$ "" }
+   { new.sentence
+     pubmedprefix "\Pubmed{" * swap$  * "}" *
+   }
+   if$
+ }
+
+FUNCTION {webpage}
+{ "%Type = Webpage" write$
+  output.bibitem
+  format.authors "author" output.check
+  author format.key output
+  author empty$
+  {
+    format.title "title" output.check
+    new.block
+    format.date "year" output.check
+    date.block
+  }
+  {
+    format.date "year" output.check
+    date.block
+    format.title "title" output.check
+    new.block
+}
+  if$
+  print.url output
+  fin.entry
+}
+
+
 FUNCTION {article}
 { "%Type = Article" write$
   output.bibitem
@@ -852,15 +942,19 @@ FUNCTION {book}
   crossref missing$
     { format.bvolume output
       format.number.series output
+      format.edition output
       format.publisher.address output
     }
     {
       format.book.crossref output.nonnull
     }
   if$
-  format.edition output
   format.date "year" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -874,6 +968,10 @@ FUNCTION {booklet}
   address "address" bibinfo.check output
   format.date "year" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -897,15 +995,20 @@ FUNCTION {inbook}
     {
       format.bvolume output
       format.number.series output
+      format.edition output
       format.publisher.address output
     }
     {
       format.book.crossref output.nonnull
     }
   if$
-  format.edition output
+  format.date "year" output.check
   format.pages "pages" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -922,15 +1025,19 @@ FUNCTION {incollection}
     { format.in.ed.booktitle "booktitle" output.check
       format.bvolume output
       format.number.series output
-      format.publisher.address output
       format.edition output
-      format.date output
+      format.publisher.address output
     }
     { format.incoll.inproc.crossref output.nonnull
     }
   if$
+  format.date "year" output.check
   format.pages "pages" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -950,15 +1057,19 @@ FUNCTION {inproceedings}
         { format.organization.address output }
         { organization "organization" bibinfo.check output
           format.publisher.address output
-          format.date output
         }
       if$
     }
     { format.incoll.inproc.crossref output.nonnull
     }
   if$
+  format.date output
   format.pages "pages" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -969,11 +1080,15 @@ FUNCTION {manual}
   format.authors output
   author format.key output
   format.btitle "title" output.check
+  format.edition output
   organization "organization" bibinfo.check output
   address "address" bibinfo.check output
-  format.edition output
   format.date "year" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -990,6 +1105,10 @@ FUNCTION {mastersthesis}
   address "address" bibinfo.check output
   format.date "year" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -1003,6 +1122,10 @@ FUNCTION {misc}
   howpublished "howpublished" bibinfo.check output
   format.date "year" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -1018,6 +1141,10 @@ FUNCTION {phdthesis}
   address "address" bibinfo.check output
   format.date "year" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -1038,6 +1165,10 @@ FUNCTION {proceedings}
   if$
   format.date "year" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -1054,6 +1185,10 @@ FUNCTION {techreport}
   address "address" bibinfo.check output
   format.date "year" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note output
   fin.entry
 }
@@ -1066,6 +1201,10 @@ FUNCTION {unpublished}
   format.title "title" output.check
   format.date "year" output.check
   new.sentence
+  print.url output
+  print.doi output
+  print.eprint output
+  print.pubmed output
   format.note "note" output.check
   fin.entry
 }
@@ -1341,6 +1480,24 @@ FUNCTION {begin.bib}
   write$ newline$
   "\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi"
   write$ newline$
+  "\providecommand{\url}[1]{\texttt{#1}}"
+  write$ newline$
+  "\providecommand{\href}[2]{#2}"
+  write$ newline$
+  "\providecommand{\path}[1]{#1}"
+  write$ newline$
+  "\providecommand{\DOIprefix}{doi:}"
+  write$ newline$
+  "\providecommand{\ArXivprefix}{arXiv:}"
+  write$ newline$
+  "\providecommand{\URLprefix}{URL: }"
+  write$ newline$
+  "\providecommand{\Pubmedprefix}{pmid:}"
+  write$ newline$
+  "\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}"
+  write$ newline$
+  "\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}"
+  write$ newline$
   "\providecommand{\bibinfo}[2]{#2}"
   write$ newline$
 	"\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi"
@@ -1348,6 +1505,7 @@ FUNCTION {begin.bib}
 }
 EXECUTE {begin.bib}
 EXECUTE {init.state.consts}
+EXECUTE {init.web.variables} 
 ITERATE {call.type$}
 FUNCTION {end.bib}
 { newline$
@@ -1357,3 +1515,15 @@ EXECUTE {end.bib}
 %% End of customized bst file
 %%
 %% End of file `model1-num-names.bst'.
+%%
+%%
+%% Change log:
+%% -----------
+%% 22.04.2011
+%%
+%% 10.08.2012
+%%   a. doi, url, eprint, pmid added
+%%   b. Bibtype `webpage' defined
+%%
+%% 30.08.2012
+%%   a. collaboration added.
