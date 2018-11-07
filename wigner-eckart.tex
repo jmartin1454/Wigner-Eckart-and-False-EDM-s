@@ -68,7 +68,7 @@
 
 % \biboptions{}
 
-\journal{Journal Name}
+\journal{Nuclear Instruments and Methods in Physics Research A}
 
 \begin{document}
 
@@ -262,9 +262,12 @@ and thus the states are related to the spherical harmonics.
 
 Eq.~(\ref{eq:xb}) therefore has a number of elements which bear a
 strong similarity with calculations in quantum mechanics.  The average
-in \ref{eq:xb} is over the cell...it has to be a spherical cell.  The
-term under the average is proportional to a quantum mechanical matrix
-element as
+in Eq.~(\ref{eq:xb}) is over the EDM measurement cell volume.  In
+order to use the Wigner-Eckart theorem, we want to make an analogy to
+quantum mechanical matrix elements.  In order for this analogy be
+valid, the cell would have to be a spherical cell.  In this
+circumstance, the term under the average is proportional to a quantum
+mechanical matrix element as
 \begin{equation}
 \label{eq:matrix}
   \left\langle\left(x\frac{\partial}{\partial
@@ -361,18 +364,18 @@ polynomial of degree 2 in the Cartesian coordinates.
 \section{Cylindrical Trap and Suppression of Higher Orders}
 \label{sec:cylinder}
 
-A requirement of this calculation is that the EDM cell be spherical,
-which is not an attractive option for EDM experiments.  A more typical
-geometry is a cylindrically symmetric geometry.  In this case, it can
-still readily be demonstrated that only $m=0$ terms contribute in the
-second sum in Eq.~(\ref{eq:xb}).  Switching to cylindrical
-$(\rho,\phi,z)$ coordinates, the differential operator becomes
-$x\frac{\partial}{\partial x}+y\frac{\partial}{\partial
-  y}=\rho\frac{\partial}{\partial\rho}$ and since $Y_{\ell m}\sim
-e^{im\phi}$ these terms would average to zero unless $m=0$.
-Furthermore, terms with $\ell={\rm odd}$ are odd in $z$.  Thus if the
-cylindrical cell is centered on $z=0$, these terms will also average
-to zero.  We are then left with
+A requirement of the calculation of the preceding section is that the
+EDM cell be spherical, which is not an attractive option for EDM
+experiments.  A more typical geometry is a cylindrically symmetric
+geometry.  In this case, it can still readily be demonstrated that
+only $m=0$ terms contribute in the second sum in Eq.~(\ref{eq:xb}).
+Switching to cylindrical $(\rho,\phi,z)$ coordinates, the differential
+operator becomes $x\frac{\partial}{\partial
+  x}+y\frac{\partial}{\partial y}=\rho\frac{\partial}{\partial\rho}$
+and since $Y_{\ell m}\sim e^{im\phi}$ these terms would average to
+zero unless $m=0$.  Furthermore, terms with $\ell={\rm odd}$ are odd
+in $z$.  Thus if the cylindrical cell is centered on $z=0$, these
+terms will also average to zero.  We are then left with
 \begin{equation}
   \label{eq:cyl}
   \langle xB_x+yB_y\rangle=-\sum_{\ell=2,4,6,...}^\infty A_{\ell
@@ -420,7 +423,7 @@ in cylindrical coordinates, is a polynomial in $\rho$ and $z$.  For
 the terms of interest, the polynomials are
 \begin{align}
 \frac{1}{2}r^2P_2(\cos\theta)&=\frac{1}{4}\left(2z^2-\rho^2\right)\\
-\frac{1}{4}r^4P_4(\cos\theta)&=\frac{1}{32}\left(8z^{4}-24z^{2}\rho^{2}+3\rho^{4}\right)\\
+\frac{1}{4}r^4P_4(\cos\theta)&=\frac{1}{32}\left(8z^{4}-24z^{2}\rho^{2}+3\rho^{4}\right),~{\rm and}\\
 \frac{1}{6}r^6P_6(\cos\theta)&=\frac{1}{96}\left(16z^{6}-120z^{4}\rho^{2}+90z^{2}\rho^{4}-5\rho^{6}\right).
 \end{align}
 We define the origin of coordinates to lie at the center of a
@@ -434,9 +437,9 @@ Eq.~(\ref{eq:cyl}) become
 +g_{40}\left(\frac{H^{2}}{4}-\frac{R^2}{2}\right)\right.\\
   \left.+g_{60}\left(\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}\right)\right].
 \end{multline}
-The expression for $d_{f,Hg}$ then becomes
+The expression for $d_{f,\rm Hg}$ then becomes
 \begin{multline}
-d_{f,Hg}=\frac{\hbar\gamma^{2}}{2c^{2}}\frac{R^2}{4}
+d_{f,\rm Hg}=\frac{\hbar\gamma^{2}}{2c^{2}}\frac{R^2}{4}
 \left[g_{20}
 +g_{40}\left(\frac{H^{2}}{4}-\frac{R^2}{2}\right)\right.\\
   \left.+g_{60}\left(\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}\right)\right].
@@ -485,9 +488,9 @@ The false EDM then becomes
 d_{f,\rm Hg} = \num{1.15e-27}\left(g_{20} - g_{40}\cdot240 +
 g_{60}\cdot\num{6.35e4}\right)\mathrm{e}\cdot\mathrm{cm}
 \end{equation}
-where the $g_{\ell0}$ are expressed in units of pT/cm$^{\ell-1}$.
-... The $g_{40}$ terms was analyzed and measured by the PSI
-collaboration~\cite{bib:komposch} and found to be in agreement with
+where the $g_{\ell0}$ are expressed in units of pT/cm$^{\ell-1}$.  The
+$g_{40}$ terms was analyzed and measured
+experimentally~\cite{bib:komposch} and found to be in agreement with
 expectation.
 
 \subsection{Quasi-spherical geometry}
@@ -505,15 +508,14 @@ electric field in the experiment the same.  Since the electric field
 is strongly related to the statistical precision of the experiment, it
 is not clear that this is a realistic compromise.
 
-Another possibility was therefore to keep the height of the cell the
-same, which would alleviate any high-voltage issues.  In this case the
-cell radius would need to shrink to $R=12$~cm$/\sqrt{2}\approx
-8.5$~cm.  The negative aspect here is that the volume of the
-experiment would shrink by a factor of almost eight.  In general, the
-statistical precision of neutron EDM experiments is driven by the
-neutron density achievable in the cell, and this choice would mean
-that the number of neutrons loaded into the cell would be reduced by
-the same factor.
+Another possibility was to keep the height of the cell the same, which
+would alleviate any high-voltage issues.  In this case the cell radius
+would need to shrink to $R=12$~cm$/\sqrt{2}\approx 8.5$~cm.  The
+negative aspect here is that the volume of the experiment would shrink
+by a factor of almost eight.  In general, the statistical precision of
+neutron EDM experiments is driven by the neutron density achievable in
+the cell, and this choice would mean that the number of neutrons
+loaded into the cell would be reduced by the same factor.
 
 We therefore decided to suggest keeping approximately the same EDM
 cell volume, setting $R=17$~cm and $H=\sqrt{2}\cdot$17~cm~$\approx
@@ -526,7 +528,7 @@ For this particular choice, the $g_{60}$ term is also reduced relative
 to the $g_{20}$ when compared to the usual ILL/PSI geometry.
 
 
-\section{Further notes}
+\subsection{Further notes}
 
 It is unclear whether this geometry would be optimal.  The main point
 of the discussion is that the geometry affects the size of the $g_{\rm
@@ -568,7 +570,7 @@ EDM of the Hg comagnetometer.  Nonetheless, we think this is an
 interesting result which points out the dependence of the false EDM
 contributions on the measurement cell geometry.
 
-\section{Acknowledgements}
+\section*{Acknowledgements}
 
 This work was undertaken, in part, thanks to funding from the Natural
 Sciences and Engineering Research Council Canada, the Canada Research
