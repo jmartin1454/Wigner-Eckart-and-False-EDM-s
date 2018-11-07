@@ -105,11 +105,11 @@
 
 \author[um]{W.~Klassen}
 \author[uw,um]{J.W.~Martin}
-\author[lpc]{G.~Pignol}
+\author[lspc]{G.~Pignol}
 
-\address[um]{Physics and Astronomy, University of Manitoba, Winnipeg, MB R3T 2N2}
-\address[uw]{Department of Physics, The University of Winnipeg, Winnipeg, MB R3B 2E9}
-\address[lpc]{LPC Grenoble}
+\address[um]{Physics and Astronomy, University of Manitoba, Winnipeg, MB, Canada}
+\address[uw]{Department of Physics, The University of Winnipeg, Winnipeg, MB, Canada}
+\address[lspc]{Universite' Grenoble Alpes, CNRS, Grenoble INP, LPSC-IN2P3, Grenoble, France}
 
 \begin{abstract}
 
@@ -455,10 +455,16 @@ If this selection is made, then the factor in the $g_{60}$ term becomes
 \begin{equation}
 \frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}=-\frac{13}{48}R^4
 \end{equation}
-%I changed 23/48 to 13/48 above
-For ILL/PSI nEDM experiment, the cell dimensions are $R=23.5$~cm and
-$H=12$~cm, and so Eq.~(\ref{eq:h}) is clearly not obeyed.
-Using the ILL/PSI geometry, the $\ell=4$ term is
+The question now becomes whether this is a reasonable geometry for
+nEDM experiment.
+
+\section{Discussion and Caveats}
+
+\subsection{ILL/PSI nEDM experiment geometry}
+
+For the ILL/PSI nEDM experiment, the cell dimensions are $R=23.5$~cm
+and $H=12$~cm, and so Eq.~(\ref{eq:h}) is clearly not obeyed.  Using
+the ILL/PSI geometry, the $\ell=4$ term is
 \begin{equation}
 \frac{H^{2}}{4}-\frac{R^2}{2}=-240~\mathrm{cm}^2
 \end{equation}
@@ -466,62 +472,100 @@ and the $\ell=6$ term is
 \begin{equation}
 \frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}=\num{6.35e4}~\mathrm{cm}^4
 \end{equation}
-Keeping approximately the same volume, we can set R = 17, H =
-$\sqrt{2}\cdot$17 = 24.  The $\ell=4$ term is zero, and the $\ell=6$
-term is \num{2.25e4}~cm$^4$, a factor of 3 suppression.
-The full expression for the ILL/PSI geometry is
+The false EDM then becomes
 \begin{equation}
-d_{f,Hg} = \num{1.15e-27}\left(g_{20} - g_{40}\cdot240 + g_{60}\cdot\num{6.35e4}\right)\mathrm{e}\cdot\mathrm{cm},
+\label{eq:falseill}
+d_{f,\rm Hg} = \num{1.15e-27}\left(g_{20} - g_{40}\cdot240 +
+g_{60}\cdot\num{6.35e4}\right)\mathrm{e}\cdot\mathrm{cm}
 \end{equation}
-and the full expression for the optimized geometry is
+where the $g_{\ell0}$ are expressed in units of pT/cm$^{\ell-1}$.
+... The $g_{40}$ terms was analyzed and measured by the PSI
+collaboration~\cite{bib:komposch} and found to be in agreement with
+expectation.
+
+\subsection{Quasi-spherical geometry}
+
+In order to compare this result for a realistic experimental geometry
+to our suggestion of a quasi-spherical cell, we considered several
+possibilities.  One possibility was to keep the radius of the cell the
+same as for the ILL experiment.  This would mean that the size of the
+pre-factor in Eq.~(\ref{eq:falseill}) would be equal.  In this case,
+the height of the cell would necessarily be increased to
+$H=\sqrt{2}\cdot$23.5~cm~$\approx 33$~cm.  The negative aspect of this
+suggestion is that a high-voltage nearly a factor of three larger
+would need to be sustained across the electrodes in order to keep the
+electric field in the experiment the same.  Since the electric field
+is strongly related to the statistical precision of the experiment, it
+is not clear that this is a realistic compromise.
+
+Another possibility was therefore to keep the height of the cell the
+same, which would alleviate any high-voltage issues.  In this case the
+cell radius would need to shrink to $R=12$~cm$/\sqrt{2}\approx
+8.5$~cm.  The negative aspect here is that the volume of the
+experiment would shrink by a factor of almost eight.  In general, the
+statistical precision of neutron EDM experiments is driven by the
+neutron density achievable in the cell, and this choice would mean
+that the number of neutrons loaded into the cell would be reduced by
+the same factor.
+
+We therefore decided to suggest keeping approximately the same EDM
+cell volume, setting $R=17$~cm and $H=\sqrt{2}\cdot$17~cm~$\approx
+24$~cm.  For this choice, the $\ell=4$ term is zero and the expression
+for the false EDM becomes
 \begin{equation}
-d_{f,Hg} = \num{6e-28}\left(g_{20} - g_{60}\cdot\num{2.25e4}\right)\mathrm{e}\cdot\mathrm{cm}.
+d_{f,\rm Hg} = \num{6e-28}\left(g_{20} - g_{60}\cdot\num{2.25e4}\right)\mathrm{e}\cdot\mathrm{cm}.
 \end{equation}
-Here, the $g_{\ell0}$ terms are in units of pT/cm$^{\ell-2}$.  If we keep the same radius as the ILL/PSI cell, but set H = $\sqrt{2}\cdot23.5=33$~cm, the expression becomes
-\begin{equation}
-d_{f,Hg}=\num{1.15e-27}(g_{20}-g_{60}\cdot\num{8.1e4})\mathrm{e}\cdot\mathrm{cm}.
-\end{equation}
+For this particular choice, the $g_{60}$ term is also reduced relative
+to the $g_{20}$ when compared to the usual ILL/PSI geometry.
+
+
+\section{Further notes}
+
+It is unclear whether this geometry would be optimal.  The main point
+of the discussion is that the geometry affects the size of the $g_{\rm
+  40}$ for the Hg comagnetometer false EDM, and the closer to
+quasi-spherical the less the higher-order terms tend to contribute.
+
+It is also important to consider the overall false-EDM correction
+scheme used in these experiments.  While the false EDM of the mercury
+comagnetometer tends to dominate the correction, it is by no means the
+only quantity affected by the higher multipoles of the magnetic field.
+The neutrons' false EDM, the spin relaxation times of the species, and
+the electric field independent spin-precession frequencies are also
+affected by the inhomogeneity.
+
+In particular, the spin-precession frequency ratio (neutrons to Hg)
+was used in the ILL nEDM experiment to sense the vertical gradient
+$g_{20}$ and hence to correct the leading terms in the false
+EDM's~\cite{bib:baker,bib:pendlebury}.  This works because the
+ultracold neutrons tend to preferentially sample the bottom of the
+cell, resulting in an average height difference against gravity.  When
+considered to higher order, other terms contribute to this correction
+scheme.  So while the false EDM of the Hg atoms could be suppressed by
+a quasi-spherical cell, it is unclear that this is the most important
+factor in experiment design.  Even if the EDM cell could be made
+spherical, the neutrons still preferentially sample the lower portion
+of the sphere.
+
+
 \section{Conclusion}
 
-...
+We have demonstrated that a spherical EDM measurement cell would
+reduce the false EDM of Hg to depend on a single multipole of the
+magnetic field.  A cylindrical cell that is quasi-spherical, with
+$H=\sqrt{2}R$ also tends to reduce the higher multipole contributions.
+Both suggestions are rather difficult to realize experimentally, and
+do not capture the full correction scheme used in the ILL/PSI nEDM
+experiment, which must take more into account than simply the false
+EDM of the Hg comagnetometer.  Nonetheless, we think this is an
+interesting result which points out the dependence of the false EDM
+contributions on the measurement cell geometry.
 
+\section{Acknowledgements}
 
-\begin{figure}[h]
-\centering\includegraphics[width=0.4\linewidth]{placeholder}
-\caption{Figure caption}
-\end{figure}
-
-
-%% The Appendices part is started with the command \appendix;
-%% appendix sections are then done as normal sections
-%% \appendix
-
-%% \section{}
-%% \label{}
-
-%% References
-%%
-%% Following citation commands can be used in the body text:
-%% Usage of \cite is as follows:
-%%   \cite{key}          ==>>  [#]
-%%   \cite[chap. 2]{key} ==>>  [#, chap. 2]
-%%   \citet{key}         ==>>  Author [#]
-
-%% References with bibTeX database:
-
-\begin{table}[h]
-\centering
-\begin{tabular}{l l l}
-\hline
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\hline
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\hline
-\end{tabular}
-\caption{Table caption}
-\end{table}
+This work was undertaken, in part, thanks to funding from the Natural
+Sciences and Engineering Research Council Canada, the Canada Research
+Chairs program, and the Canada Foundation for Innovation.
 
 
 \bibliographystyle{model1-num-names}
