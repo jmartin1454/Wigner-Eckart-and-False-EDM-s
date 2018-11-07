@@ -240,12 +240,10 @@ operator $(xp_x+yp_y)$ in quantum mechanics.
 
 For a particle in a spherically symmetric potential, the stationary
 states may be written as eigenstates of the angular momentum operators
-\begin{equation}
-L^2|n\ell m\rangle=\hbar^2\ell(\ell+1)|n\ell m\rangle
-\end{equation}
-\begin{equation}
-L_z^2|n\ell m\rangle=\hbar m|n\ell m\rangle
-\end{equation}
+\begin{align}
+L^2|n\ell m\rangle&=\hbar^2\ell(\ell+1)|n\ell m\rangle\\
+L_z^2|n\ell m\rangle&=\hbar m|n\ell m\rangle
+\end{align}
 where $|n\ell m\rangle$ represents the stationary state and $\ell$ and
 $m$ are quantum numbers.  The quantum number $n$ would count energy
 levels.  In the position representation, the states factorize in
@@ -286,33 +284,21 @@ The Clebsch-Gordan coefficient $\langle\ell k;mq|\ell
 k;\ell'm'\rangle$ can be thought of in the following more familiar
 way.  Imagine two angular momentum operators $\vec{L}$ and $\vec{K}$
 with a simultaneous eigenstate $|\ell k;mq\rangle$ s.t.
-\begin{equation}
-L^2|\ell k;mq\rangle=\hbar^2\ell(\ell+1)|\ell k;mq\rangle
-\end{equation}
-\begin{equation}
-L_z|\ell k;mq\rangle=\hbar m|\ell k;mq\rangle
-\end{equation}
-\begin{equation}
-K^2|\ell k;mq\rangle=\hbar^2k(k+1)|\ell k;mq\rangle
-\end{equation}
-\begin{equation}
-K_z|\ell k;mq\rangle=\hbar q|\ell k;mq\rangle.
-\end{equation}
+\begin{align}
+L^2|\ell k;mq\rangle&=\hbar^2\ell(\ell+1)|\ell k;mq\rangle\\
+L_z|\ell k;mq\rangle&=\hbar m|\ell k;mq\rangle\\
+K^2|\ell k;mq\rangle&=\hbar^2k(k+1)|\ell k;mq\rangle\\
+K_z|\ell k;mq\rangle&=\hbar q|\ell k;mq\rangle.
+\end{align}
 If we now define a new operator $\vec{L}'=\vec{L}+\vec{K}$, the
 Clebsch-Gordan coefficients represent the coefficients transforming to
 the new basis $|\ell k;\ell'm'\rangle$ where
-\begin{equation}
-L^2|\ell k;mq\rangle=\hbar^2\ell(\ell+1)|\ell k;\ell'm'\rangle
-\end{equation}
-\begin{equation}
-K^2|\ell k;mq\rangle=\hbar^2k(k+1)|\ell k;\ell'm'\rangle
-\end{equation}
-\begin{equation}
-L'^2|\ell k;mq\rangle=\hbar^2\ell'(\ell'+1)|\ell k;\ell'm'\rangle
-\end{equation}
-\begin{equation}
-L'_z|\ell k;mq\rangle=\hbar m'|\ell k;\ell'm'\rangle.
-\end{equation}
+\begin{align}
+L^2|\ell k;mq\rangle&=\hbar^2\ell(\ell+1)|\ell k;\ell'm'\rangle\\
+K^2|\ell k;mq\rangle&=\hbar^2k(k+1)|\ell k;\ell'm'\rangle\\
+L'^2|\ell k;mq\rangle&=\hbar^2\ell'(\ell'+1)|\ell k;\ell'm'\rangle\\
+L'_z|\ell k;mq\rangle&=\hbar m'|\ell k;\ell'm'\rangle.
+\end{align}
 In this way, the Clebsch-Gordan coefficient is related to the addition
 of angular momentum of the state $|n\ell m\rangle$ to that of the
 spherical tensor $T_q^{(k)}$ and reaching the state
@@ -425,16 +411,11 @@ itself as the uniform gradient term of Ref.~\cite{bib:pignol-roccia}.
 In general $\frac{1}{\ell}r^\ell P_\ell(\cos\theta)$, when expressed
 in cylindrical coordinates, is a polynomial in $\rho$ and $z$.  For
 the terms of interest, the polynomials are
-\begin{equation}
-\frac{1}{2}r^2P_2(\cos\theta)=\frac{1}{4}\left(2z^2-\rho^2\right)
-\end{equation}
-\begin{equation}
-\frac{1}{4}r^4P_4(\cos\theta)=\frac{1}{32}\left(8z^{4}-24z^{2}\rho^{2}+3\rho^{4}\right)
-\end{equation}
-and
-\begin{equation}
-\frac{1}{6}r^6P_6(\cos\theta)=\frac{1}{96}\left(16z^{6}-120z^{4}\rho^{2}+90z^{2}\rho^{4}-5\rho^{6}\right).
-\end{equation}
+\begin{align}
+\frac{1}{2}r^2P_2(\cos\theta)&=\frac{1}{4}\left(2z^2-\rho^2\right)\\
+\frac{1}{4}r^4P_4(\cos\theta)&=\frac{1}{32}\left(8z^{4}-24z^{2}\rho^{2}+3\rho^{4}\right)\\
+\frac{1}{6}r^6P_6(\cos\theta)&=\frac{1}{96}\left(16z^{6}-120z^{4}\rho^{2}+90z^{2}\rho^{4}-5\rho^{6}\right).
+\end{align}
 We define the origin of coordinates to lie at the center of a
 measurement cell with height $H$ and radius $R$.  Carrying out the
 average over the cell, the first three non-zero terms of
@@ -477,7 +458,6 @@ If this selection is made, then the factor in the $g_{60}$ term becomes
 %I changed 23/48 to 13/48 above
 For ILL/PSI nEDM experiment, the cell dimensions are $R=23.5$~cm and
 $H=12$~cm, and so Eq.~(\ref{eq:h}) is clearly not obeyed.
-
 Using the ILL/PSI geometry, the $\ell=4$ term is
 \begin{equation}
 \frac{H^{2}}{4}-\frac{R^2}{2}=-240~\mathrm{cm}^2
@@ -491,13 +471,16 @@ $\sqrt{2}\cdot$17 = 24.  The $\ell=4$ term is zero, and the $\ell=6$
 term is \num{2.25e4}~cm$^4$, a factor of 3 suppression.
 The full expression for the ILL/PSI geometry is
 \begin{equation}
-    d_{f,Hg} = \num{1.15e-27}\left(g_{20} - g_{40}\cdot240 + g_{60}\cdot\num{6.35e4}\right)\mathrm{e}\cdot\mathrm{cm},
+d_{f,Hg} = \num{1.15e-27}\left(g_{20} - g_{40}\cdot240 + g_{60}\cdot\num{6.35e4}\right)\mathrm{e}\cdot\mathrm{cm},
 \end{equation}
 and the full expression for the optimized geometry is
 \begin{equation}
-    d_{f,Hg} = \num{6e-28}\left(g_{20} + g_{60}\cdot\num{2.25e4}\right)\mathrm{e}\cdot\mathrm{cm}.
+d_{f,Hg} = \num{6e-28}\left(g_{20} - g_{60}\cdot\num{2.25e4}\right)\mathrm{e}\cdot\mathrm{cm}.
 \end{equation}
-Here, the $g_{\ell0}$ terms are in units of pT/cm$^{\ell-2}$
+Here, the $g_{\ell0}$ terms are in units of pT/cm$^{\ell-2}$.  If we keep the same radius as the ILL/PSI cell, but set H = $\sqrt{2}\cdot23.5=33$~cm, the expression becomes
+\begin{equation}
+d_{f,Hg}=\num{1.15e-27}(g_{20}-g_{60}\cdot\num{8.1e4})\mathrm{e}\cdot\mathrm{cm}.
+\end{equation}
 \section{Conclusion}
 
 ...
