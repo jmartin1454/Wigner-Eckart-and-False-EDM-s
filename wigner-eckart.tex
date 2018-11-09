@@ -47,6 +47,9 @@
 
 \usepackage{siunitx}
 
+\bibliographystyle{model1-num-names}
+%\biboptions{sort}
+
 %% natbib.sty is loaded by default. However, natbib options can be
 %% provided with \biboptions{...} command. Following options are
 %% valid:
@@ -112,7 +115,17 @@
 \address[lspc]{Universit\'e Grenoble Alpes, CNRS, Grenoble INP, LPSC-IN2P3, Grenoble, France}
 
 \begin{abstract}
-
+  In neutron electric dipole moment experiments, $^{199}$Hg is used as
+  comagnetometer.  The comagnetometer suffers from a false EDM arising
+  in leading order from a gradient $\partial B_{0z}/\partial z$ in the
+  magnetic field.  Our work concerns higher-order multipole
+  corrections to the false EDM of $^{199}$Hg.  We show that for
+  spherical traps, all higher-order multipole are identically zero.
+  We further show that for the usual cylindrical traps used in EDM
+  experiments, selection of quasi-spherical dimensions for the trap
+  can reduce the higher-order contributions.  The results are another
+  indication that trap geometry is an important consideration for
+  experiments desiring to control this systematic effect.
 \end{abstract}
 
 \begin{keyword}
@@ -162,7 +175,7 @@ atoms.  In the previous most precise nEDM
 experiment~\cite{bib:baker,bib:pendlebury} it was found that a
 vertical gradient $\partial B_{0z}/\partial z$ in the magnetic field
 induced false EDM's for the neutrons and Hg atoms.  The frequency
-shift can be thought of as a Bloch-Siegert shift for particles
+shift can be considered as a Ramsey-Bloch-Siegert shift for particles
 traveling in orbits within the trap~\cite{bib:gpe1,bib:gpe2}.  The
 ultracold neutrons traverse the measurement volume slowly enough that
 their accrued phase can be thought of as a geometric
@@ -177,9 +190,9 @@ false EDM for the Hg atoms could written in the form
 \end{equation}
 using integration by parts~\cite{bib:pignol-roccia}.  Here, $\gamma$
 is the gyromagnetic ratio of Hg, and the average is over the
-containing volume. This form is valid to high precision, even
-reproducing higher-order effects first studied using Monte Carlo
-techniques in Ref.~\cite{bib:gpe2}.
+containing volume. This form is valid to high precision in the
+low-frequency (field) limit, even reproducing higher-order effects
+first studied using Monte Carlo techniques in Ref.~\cite{bib:gpe2}.
 
 The false EDM of Hg is also well-understood experimentally, having
 been characterized using surrounding Cs magnetometers \cite{bib:hgcs}
@@ -209,17 +222,19 @@ $\nabla\cdot\vec{B}=0$, $\Phi_M$ obeys Laplace's equation:
 \nabla^2\Phi_M=0.
 \end{equation}
 The general solution for a boundary-value problem in can be written in
-terms of spherical harmonics $Y_{\ell m}(\theta,\phi)$ as
+spherical coordinates $(r,\theta,\phi)$ in terms of spherical
+harmonics $Y_{\ell m}(\theta,\phi)$ as
 \begin{equation}\label{eq:boundaryvalue}
   \Phi_M(r,\theta,\phi)=\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell\left[A_{\ell m}r^\ell+B_{\ell m}r^{-(\ell+1)}\right]Y_{\ell m}(\theta,\phi)
 \end{equation}
-with the spherical harmonics
+where $A_{\ell m}$ and $B_{\ell m}$ are sets of constants determined
+by the boundary conditions.  If we define $r=0$ to be the center of
+the trap, the requirement that $\vec{B}$ remain finite enforces
+$B_{\ell m}=0$.  The spherical harmonics can be written as
 \begin{equation}
-    Y_{\ell,m}(\theta,\phi)=\sqrt{\frac{2\ell+1}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}}P_{\ell}^{m}(\cos\theta)e^{im\phi},
+    Y_{\ell m}(\theta,\phi)=\sqrt{\frac{2\ell+1}{4\pi}\frac{(\ell-m)!}{(\ell+m)!}}P_{\ell}^{m}(\cos\theta)e^{im\phi},
 \end{equation}
-and the associated Legendre polynomials, $P_{\ell}^{m}$. define things and state that $\Phi$ must be real.  If we
-define $r=0$ to be the center of the trap, the requirement that
-$\vec{B}$ remain finite enforces $B_{\ell m}=0$.
+where $P_{\ell}^{m}$ are the associated Legendre polynomials.  
 
 The average appearing in Eq.~(\ref{eq:pignol}) can be recast in terms
 of the scalar potential as
@@ -361,6 +376,17 @@ xB_x+yB_y\rangle=-A_{20}\left\langle\left(x\frac{\partial}{\partial
 where the average can be readily carried out since $r^2Y_{20}$ is a
 polynomial of degree 2 in the Cartesian coordinates.
 
+The suppression of the higher-order terms can be derived in a number
+of different ways, for example, by the commutation relations of the
+operators, by integration by parts, and/or by using the known
+properties of the spherical harmonics/Legendre polynomials.  We used
+this to check the result in a number of ways.  This included (a)
+explicit integration of the $m=0$ terms for particular higher $\ell$,
+demonstrating they were all zero, and (b) integration by parts
+(shifting the derivatives to the left) and then using the
+orthogonality of the Legendre polynomials to demonstrate that only
+$\ell=2$ is permitted.
+
 \section{Cylindrical Trap and Suppression of Higher Orders}
 \label{sec:cylinder}
 
@@ -394,17 +420,18 @@ introduce a more convenient normalization based on the Legendre
 polynomials $P_\ell(\cos\theta)$ as
 \begin{equation}
     \langle xB_x+yB_y\rangle= -
-    \sum_{\ell=2,4,6...}^{\infty}\frac{g_{\ell0}}{\ell}\left\langle\left(\rho\frac{\partial}{\partial
+    \sum_{\ell=2,4,6...}^{\infty}\frac{g_{(\ell-1)0}}{\ell}\left\langle\left(\rho\frac{\partial}{\partial
       \rho}\right)r^\ell P_\ell(\cos\theta)\right\rangle,
 \end{equation}
-where the $g_{\ell 0}$ are related by constants to the $A_{\ell 0}$ in
-Eq.~(\ref{eq:cyl}).  This normalization is preferred because it
+where the $g_{(\ell-1)0}$ are related by constants to the $A_{\ell 0}$
+in Eq.~(\ref{eq:cyl}).  This normalization is preferred because it
 ensures that the $m=0$ components of
 $B_{z}=-\frac{\partial\Phi_M}{\partial z}$ are polynomials which
-contain $g_{\ell 0}z^{\ell-1}$.  This ensures, for example, that the
-leading-order term in the vertical gradient is $\frac{\partial
-  B_z}{\partial z}=-g_{20}$, allowing us to easily identify $-g_{20}$
-itself as the uniform gradient term of Ref.~\cite{bib:pignol-roccia}.
+contain $g_{\ell 0}z^\ell$ with $\ell={\rm odd}$.  This ensures, for
+example, that the leading-order term in the vertical gradient is
+$\frac{\partial B_z}{\partial z}=-g_{10}$, allowing us to easily
+identify $-g_{10}$ itself as the first-order uniform gradient term of
+Ref.~\cite{bib:pignol-roccia}.
 
 %The Legendre polynomials of interest are
 %\begin{equation}
@@ -433,20 +460,21 @@ Eq.~(\ref{eq:cyl}) become
 \begin{multline}
 \label{eq:xbc}
   \langle xB_x+yB_y\rangle
-=-\frac{R^{2}}{4}\left[g_{20}
-+g_{40}\left(\frac{H^{2}}{4}-\frac{R^2}{2}\right)\right.\\
-  \left.+g_{60}\left(\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}\right)\right].
+=-\frac{R^{2}}{4}\left[g_{10}
++g_{30}\left(\frac{H^{2}}{4}-\frac{R^2}{2}\right)\right.\\
+  \left.+g_{50}\left(\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}\right)\right].
 \end{multline}
 The expression for $d_{f,\rm Hg}$ then becomes
 \begin{multline}
 d_{f,\rm Hg}=\frac{\hbar\gamma^{2}}{2c^{2}}\frac{R^2}{4}
-\left[g_{20}
-+g_{40}\left(\frac{H^{2}}{4}-\frac{R^2}{2}\right)\right.\\
-  \left.+g_{60}\left(\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}\right)\right].
+\left[g_{10}
++g_{30}\left(\frac{H^{2}}{4}-\frac{R^2}{2}\right)\right.\\
+  \left.+g_{50}\left(\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}\right)\right].
 \end{multline}
-The $g_{20}$ term is in agreement with Ref.~\cite{bib:pignol-roccia},
+The $g_{10}$ term is in agreement with Ref.~\cite{bib:pignol-roccia},
 and the other two terms have also been derived
-previously~\cite{bib:pignol-priv}.  We now analyze the next two terms.
+previously~\cite{bib:pignol-priv}.  We now analyze these next two
+terms.
 
 %The traditional units used in EDM experiments is e$\cdot$cm, and
 %gradients are usually expressed in units per distance to some power.
@@ -465,7 +493,7 @@ If this selection is made, then the factor in the $g_{60}$ term becomes
 \begin{equation}
 \frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}=-\frac{13}{48}R^4
 \end{equation}
-The question now becomes whether this is a reasonable geometry for
+The question now becomes whether this is a reasonable geometry for an
 nEDM experiment.
 
 \section{Discussion and Caveats}
@@ -485,12 +513,12 @@ and the $\ell=6$ term is
 The false EDM then becomes
 \begin{equation}
 \label{eq:falseill}
-d_{f,\rm Hg} = \num{1.15e-27}\left(g_{20} - g_{40}\cdot240 +
-g_{60}\cdot\num{6.35e4}\right)\mathrm{e}\cdot\mathrm{cm}
+d_{f,\rm Hg} = \num{1.15e-27}\left(g_{10} - g_{30}\cdot240 +
+g_{50}\cdot\num{6.35e4}\right)\mathrm{e}\cdot\mathrm{cm}
 \end{equation}
-where the $g_{\ell0}$ are expressed in units of pT/cm$^{\ell-1}$.  The
-$g_{40}$ terms was analyzed and measured
-experimentally~\cite{bib:komposch} and found to be in agreement with
+where the $g_{\ell0}$ are expressed in units of pT/cm$^\ell$.  The
+$g_{30}$ term was analyzed and measured experimentally in
+Ref.~\cite{bib:komposch} and found to be in agreement with
 expectation.
 
 \subsection{Quasi-spherical geometry}
@@ -522,18 +550,20 @@ cell volume, setting $R=17$~cm and $H=\sqrt{2}\cdot$17~cm~$\approx
 24$~cm.  For this choice, the $\ell=4$ term is zero and the expression
 for the false EDM becomes
 \begin{equation}
-d_{f,\rm Hg} = \num{6e-28}\left(g_{20} - g_{60}\cdot\num{2.25e4}\right)\mathrm{e}\cdot\mathrm{cm}.
+d_{f,\rm Hg} = \num{6e-28}\left(g_{10} - g_{50}\cdot\num{2.25e4}\right)\mathrm{e}\cdot\mathrm{cm}.
 \end{equation}
-For this particular choice, the $g_{60}$ term is also reduced relative
-to the $g_{20}$ when compared to the usual ILL/PSI geometry.
+For this particular choice, the overall false EDM is smaller, and
+furthermore the $g_{50}$ term is reduced relative to the $g_{10}$ when
+compared to the usual ILL/PSI geometry.
 
 
 \subsection{Further notes}
 
-It is unclear whether this geometry would be optimal.  The main point
-of the discussion is that the geometry affects the size of the $g_{\rm
-  40}$ for the Hg comagnetometer false EDM, and the closer to
-quasi-spherical the less the higher-order terms tend to contribute.
+It is unclear whether this geometry would be realizable
+experimentally.  The main point of the discussion is that the geometry
+affects the size of the $g_{\rm 30}$ for the Hg comagnetometer false
+EDM, and the closer to spherical the less the higher-order terms tend
+to contribute.
 
 It is also important to consider the overall false-EDM correction
 scheme used in these experiments.  While the false EDM of the mercury
@@ -545,7 +575,7 @@ affected by the inhomogeneity.
 
 In particular, the spin-precession frequency ratio (neutrons to Hg)
 was used in the ILL nEDM experiment to sense the vertical gradient
-$g_{20}$ and hence to correct the leading terms in the false
+$g_{10}$ and hence to correct the leading terms in the false
 EDM's~\cite{bib:baker,bib:pendlebury}.  This works because the
 ultracold neutrons tend to preferentially sample the bottom of the
 cell, resulting in an average height difference against gravity.  When
@@ -578,7 +608,6 @@ Chairs program, and the Canada Foundation for Innovation.
 
 \section*{References}
 
-\bibliographystyle{model1-num-names}
 \bibliography{sample.bib}
 
 %% Authors are advised to submit their bibtex database files. They are
