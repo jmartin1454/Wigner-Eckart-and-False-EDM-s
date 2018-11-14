@@ -419,18 +419,19 @@ In order to more easily compare to Ref.~\cite{bib:pignol-roccia}, we
 introduce a more convenient normalization based on the Legendre
 polynomials $P_\ell(\cos\theta)$ as
 \begin{equation}
-    \langle xB_x+yB_y\rangle= -
+\label{eq:cylprime}
+  \langle xB_x+yB_y\rangle= +
     \sum_{\ell=2,4,6...}^{\infty}\frac{g_{(\ell-1)0}}{\ell}\left\langle\left(\rho\frac{\partial}{\partial
       \rho}\right)r^\ell P_\ell(\cos\theta)\right\rangle,
 \end{equation}
-where the $g_{(\ell-1)0}$ are related by constants to the $A_{\ell 0}$
-in Eq.~(\ref{eq:cyl}).  This normalization is preferred because it
-ensures that the $m=0$ components of
+where the $g_{(\ell-1)0}$ are related by constants (and a sign change)
+to the $A_{\ell 0}$ in Eq.~(\ref{eq:cyl}).  This normalization is
+preferred because it ensures that the $m=0$ components of
 $B_{z}=-\frac{\partial\Phi_M}{\partial z}$ are polynomials which
-contain $g_{\ell 0}z^\ell$ with $\ell={\rm odd}$.  This ensures, for
-example, that the leading-order term in the vertical gradient is
-$\frac{\partial B_z}{\partial z}=-g_{10}$, allowing us to easily
-identify $-g_{10}$ itself as the first-order uniform gradient term of
+contain $g_{\ell 0}z^\ell$ with $\ell={\rm odd}$.  This guarantees,
+for example, that the leading-order term in the vertical gradient is
+$\frac{\partial B_z}{\partial z}=g_{10}$, allowing us to easily
+identify $g_{10}$ itself as the first-order uniform gradient term of
 Ref.~\cite{bib:pignol-roccia}.
 
 %The Legendre polynomials of interest are
@@ -456,7 +457,7 @@ the terms of interest, the polynomials are
 We define the origin of coordinates to lie at the center of a
 measurement cell with height $H$ and radius $R$.  Carrying out the
 average over the cell, the first three non-zero terms of
-Eq.~(\ref{eq:cyl}) become
+Eq.~(\ref{eq:cylprime}) become
 \begin{multline}
 \label{eq:xbc}
   \langle xB_x+yB_y\rangle
@@ -466,8 +467,7 @@ Eq.~(\ref{eq:cyl}) become
 \end{multline}
 The expression for $d_{f,\rm Hg}$ then becomes
 \begin{multline}
-d_{f,\rm Hg}=\frac{\hbar\gamma^{2}}{2c^{2}}\frac{R^2}{4}
-\left[g_{10}
+d_{f,\rm Hg}=\frac{\hbar\gamma^{2}R^2}{8c^{2}}\left[g_{10}
 +g_{30}\left(\frac{H^{2}}{4}-\frac{R^2}{2}\right)\right.\\
   \left.+g_{50}\left(\frac{H^{4}}{16}-\frac{5R^2H^2}{12}+\frac{5R^4}{16}\right)\right].
 \end{multline}
@@ -604,7 +604,8 @@ contributions on the measurement cell geometry.
 
 This work was undertaken, in part, thanks to funding from the Natural
 Sciences and Engineering Research Council Canada, the Canada Research
-Chairs program, and the Canada Foundation for Innovation.
+Chairs program, and the Canada Foundation for Innovation.  G.P. is
+supported by the ERC grant 716651-NEDM.
 
 \section*{References}
 
