@@ -115,7 +115,7 @@
 \address[lspc]{Universit\'e Grenoble Alpes, CNRS, Grenoble INP, LPSC-IN2P3, Grenoble, France}
 
 \begin{abstract}
-  In neutron electric dipole moment experiments, $^{199}$Hg is used as
+  In neutron electric dipole moment (EDM) experiments, $^{199}$Hg is used as
   a comagnetometer.  The comagnetometer suffers from a false EDM
   arising in leading order from a gradient $\partial B_{z}/\partial z$
   in the magnetic field.  Our work concerns higher-order multipole
@@ -148,9 +148,9 @@ false electric dipole moment \sep trapped particles \sep neutron electric dipole
 \section{False electric dipole moments for particles in traps}
 \label{sec:intro}
 
-In the most precise neutron electric dipole moment experiments,
-ultracold neutrons are placed in a bottle containing either parallel
-or antiparallel electric $E$ and magnetic $B$ fields.  Their spin
+In the most precise neutron electric dipole moment (EDM) experiments,
+ultracold neutrons are stored in a bottle in either parallel or
+antiparallel electric $E$ and magnetic $B$ fields.  Their spin
 precession frequency $\omega_\pm$ is measured
 \begin{equation}
 \omega_\pm=\gamma_nB\pm 2d_nE/\hbar
@@ -179,7 +179,7 @@ shift can be considered as a Ramsey-Bloch-Siegert shift for particles
 traveling in orbits within the trap~\cite{bib:gpe1,bib:gpe2}.  The
 ultracold neutrons traverse the measurement volume slowly enough that
 their accrued phase can be thought of as a geometric
-phase~\cite{bib:gpe1}.
+phase which accrues adiabatically~\cite{bib:gpe1}.
 
 The false EDM's can also be calculated by correlation function
 techniques~\cite{bib:gpe3,bib:gpe4}.  This led to the realization that
@@ -189,10 +189,10 @@ false EDM for the Hg atoms could written in the form
   d_{f,\rm Hg}=-\frac{\hbar\gamma^{2}}{2c^{2}}\langle xB_x+yB_y\rangle
 \end{equation}
 using integration by parts~\cite{bib:pignol-roccia}.  Here, $\gamma$
-is the gyromagnetic ratio of Hg, and the average is over the
-containing volume. This form is valid to high precision in the
-low-frequency (field) limit, even reproducing higher-order effects
-first studied using Monte Carlo techniques in Ref.~\cite{bib:gpe2}.
+is the gyromagnetic ratio of Hg, and the average is over the storage
+volume. This form is valid to high precision in the low-frequency
+(field) limit, even reproducing higher-order effects first studied
+using Monte Carlo techniques in Ref.~\cite{bib:gpe2}.
 
 The false EDM of Hg is also well-understood experimentally, having
 been characterized using surrounding Cs magnetometers~\cite{bib:hgcs}
@@ -264,7 +264,7 @@ For a particle in a spherically symmetric potential, the stationary
 states may be written as eigenstates of the angular momentum operators
 \begin{align}
 L^2|n\ell m\rangle&=\hbar^2\ell(\ell+1)|n\ell m\rangle\\
-L_z^2|n\ell m\rangle&=\hbar m|n\ell m\rangle
+L_z|n\ell m\rangle&=\hbar m|n\ell m\rangle
 \end{align}
 where $|n\ell m\rangle$ represents the stationary state and $\ell$ and
 $m$ are quantum numbers.  The quantum number $n$ would count energy
@@ -308,7 +308,7 @@ element that does not depend on $m$, $m'$, or $q$.
 The Clebsch-Gordan coefficient $\langle\ell k;mq|\ell
 k;\ell'm'\rangle$ can be thought of in the following more familiar
 way.  Imagine two angular momentum operators $\vec{L}$ and $\vec{K}$
-with a simultaneous eigenstate $|\ell k;mq\rangle$ s.t.
+with simultaneous eigenstates $|\ell k;mq\rangle$ s.t.
 \begin{align}
 L^2|\ell k;mq\rangle&=\hbar^2\ell(\ell+1)|\ell k;mq\rangle\\
 L_z|\ell k;mq\rangle&=\hbar m|\ell k;mq\rangle\\
@@ -374,7 +374,7 @@ xB_x+yB_y\rangle=-A_{20}\left\langle\left(x\frac{\partial}{\partial
   x}+y\frac{\partial}{\partial y}\right)r^2 Y_{20}\right\rangle
 \end{equation}
 where the average can be readily carried out since $r^2Y_{20}$ is a
-polynomial of degree 2 in the Cartesian coordinates.
+polynomial of degree 2 in Cartesian coordinates.
 
 The suppression of the higher-order terms can be derived in a number
 of different ways, for example, by the commutation relations of the
@@ -591,7 +591,7 @@ of the sphere.
 
 We have demonstrated that a spherical EDM measurement cell would
 reduce the false EDM of Hg to depend on a single multipole of the
-magnetic field.  A cylindrical cell that is quasi-spherical, with
+magnetic field.  A cylindrical cell that is quasi-spherical with
 $H=\sqrt{2}R$ also tends to reduce the higher multipole contributions.
 Both suggestions are rather difficult to realize experimentally, and
 do not capture the full correction scheme used in the ILL/PSI nEDM
