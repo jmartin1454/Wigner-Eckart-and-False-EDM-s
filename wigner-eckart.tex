@@ -120,7 +120,7 @@
   arising in leading order from a gradient $\partial B_{z}/\partial z$
   in the magnetic field.  Our work concerns higher-order multipole
   corrections to the false EDM of $^{199}$Hg.  We show that for
-  spherical traps, all higher-order multipole are identically zero.
+  spherical traps, all higher-order multipoles are identically zero.
   We further show that for the usual cylindrical traps used in EDM
   experiments, selection of quasi-spherical dimensions for the trap
   can reduce the higher-order contributions.  The results are another
@@ -153,12 +153,11 @@ ultracold neutrons are stored in a bottle in either parallel or
 antiparallel electric $E$ and magnetic $B$ fields.  Their spin
 precession frequency $\omega_\pm$ is measured
 \begin{equation}
-\omega_\pm=\gamma_nB\pm 2d_nE/\hbar
+\omega_\pm=(2\mu_nB\pm 2d_nE)/\hbar
 \end{equation}
 for each of the parallel ($+$) and antiparallel ($-$) configurations,
 leading to a determination of the neutron electric dipole moment
-$d_n$.  Here $\gamma_n$ is the neutron gyromagnetic ratio with the
-frequency being measured in radians/s.
+$d_n$.  Here $\mu_n$ is the neutron magnetic moment.
 
 A crucial aspect of the experiment is that the magnetic field be
 continuously monitored so that any drifts can be corrected.  To
@@ -183,16 +182,17 @@ phase which accrues adiabatically~\cite{bib:gpe1}.
 
 The false EDM's can also be calculated by correlation function
 techniques~\cite{bib:gpe3,bib:gpe4}.  This led to the realization that
-false EDM for the Hg atoms could written in the form
+false EDM for the Hg atoms could be written in the form
 \begin{equation}
 \label{eq:pignol}
   d_{f,\rm Hg}=-\frac{\hbar\gamma^{2}}{2c^{2}}\langle xB_x+yB_y\rangle
 \end{equation}
-using integration by parts~\cite{bib:pignol-roccia}.  Here, $\gamma$
-is the gyromagnetic ratio of Hg, and the average is over the storage
-volume. This form is valid to high precision in the low-frequency
-(field) limit, even reproducing higher-order effects first studied
-using Monte Carlo techniques in Ref.~\cite{bib:gpe2}.
+
+using integration by parts~\cite{bib:pignol-roccia}.  Here, $\gamma=2\mu/\hbar$
+is the gyromagnetic ratio of Hg with $\mu$ being its magnetic moment, and the average is over the
+storage volume. This form is valid to high precision in the
+low-frequency (field) limit, even reproducing higher-order effects
+first studied using Monte Carlo techniques in Ref.~\cite{bib:gpe2}.
 
 The false EDM of Hg is also well-understood experimentally, having
 been characterized using surrounding Cs magnetometers~\cite{bib:hgcs}
@@ -221,7 +221,7 @@ $\nabla\cdot\vec{B}=0$, $\Phi_M$ obeys Laplace's equation:
 \begin{equation}
 \nabla^2\Phi_M=0.
 \end{equation}
-The general solution for a boundary-value problem in can be written in
+The general solution for a boundary-value problem can be written in
 spherical coordinates $(r,\theta,\phi)$ in terms of spherical
 harmonics $Y_{\ell m}(\theta,\phi)$ as~\cite{bib:jackson}
 \begin{equation}\label{eq:boundaryvalue}
@@ -349,7 +349,7 @@ T_0^{(0)}=-\frac{\vec{r}\cdot\vec{p}}{3}=\frac{-xp_x-yp_y-zp_z}{3}
 \end{equation}
 and
 \begin{equation}
-T_0^{(2)}=\frac{3zp_z-(\vec{r}\cdot\vec{p})^2}{\sqrt{6}}=\frac{-xp_x-yp_y+2zp_z}{\sqrt{6}}.
+T_0^{(2)}=\frac{3zp_z-\vec{r}\cdot\vec{p}}{\sqrt{6}}=\frac{-xp_x-yp_y+2zp_z}{\sqrt{6}}.
 \end{equation}
 The operator of interest can then be written as
 \begin{equation}
